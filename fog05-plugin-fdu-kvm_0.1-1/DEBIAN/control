@@ -1,0 +1,10 @@
+Package: fog05-plugin-fdu-kvm
+Version: 0.1-1
+Section: base
+Priority: optional
+Architecture: amd64
+Depends: libev-dev (>=4.0), libssl-dev (>= 1.1), python3 (>= 3.6), python3-pip (>= 9.0), python3-dev (>= 3.6), jq (>= 1.5), fog05 (= 0.1), libvirt-bin (>= 4.0.0), libvirt-dev (>= 4.0.0), python3-libvirt (>= 4.0.0), seabios (>= 1.10), libguestfs-tools, qemu-kvm
+Maintainer:  fog05-dev@eclipse.org (Eclipse fog05)
+Description: Plugin FDU KVM for Eclipse fog05
+
+

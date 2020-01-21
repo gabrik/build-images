@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+
+UUID=$(/etc/fos/node_uuid.sh)
+sh -c "echo $UUID | xargs -i  jq  '.configuration.nodeid = \"{}\"' /etc/fos/plugins/plugin-fdu-native/native_plugin.json > /tmp/fdu_plugin.tmp && mv /tmp/fdu_plugin.tmp /etc/fos/plugins/plugin-fdu-native/native_plugin.json"
+pip3 install psutil mvar jinja2
+#DEBHELPER#
+exit 0
+
