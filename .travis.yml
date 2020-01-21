@@ -1,3 +1,2 @@
 language: c
-script:
-  - echo "Nothing to do"
+script: bash -ex build_debs.sh
