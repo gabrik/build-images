@@ -2,6 +2,7 @@
 set -e
 
 userdel fos
+rm -rf /var/fos
 
 #DEBHELPER#
 exit 0
