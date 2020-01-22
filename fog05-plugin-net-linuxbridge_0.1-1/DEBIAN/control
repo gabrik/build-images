@@ -3,7 +3,7 @@ Version: 0.1-1
 Section: base
 Priority: optional
 Architecture: amd64
-Depends: libev-dev (>=4.0), libssl-dev (>= 1.1), python3 (>= 3.6), python3-pip (>= 9.0), python3-dev (>= 3.6), jq (>= 1.5), fog05 (= 0.1)
+Depends: libev-dev (>=4.0), libssl-dev (>= 1.1), python3 (>= 3.6), python3-pip (>= 9.0), python3-dev (>= 3.6), jq (>= 1.5), fog05 (= 0.1-1)
 Maintainer:  fog05-dev@eclipse.org (Eclipse fog05)
 Description: Plugin Network Manager LinuxBridge for Eclipse fog05
 
