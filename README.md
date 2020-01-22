@@ -1,5 +1,5 @@
 
-![fog05 banner](./logo_h.png)
+<!-- ![fog05 banner](./logo_h.png) -->
 
 [![Build Status](https://travis-ci.com/atolab/fog05_debs.svg?branch=master)](https://travis-ci.com/atolab/fog05_debs)
 [![Gitter](https://badges.gitter.im/atolab/fog05.svg)](https://gitter.im/atolab/fog05?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
