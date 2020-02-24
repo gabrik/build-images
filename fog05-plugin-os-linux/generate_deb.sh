@@ -19,9 +19,9 @@ docker exec build bash -c "mkdir /root/build && cd /root && cp -r plugin-os-linu
 docker exec build bash -c "export DEBEMAIL=\"info@adlink-labs.tech\" && export DEBFULLNAME=\"ADLINK Technology Inc\" && cd /root/build/fog05-plugin-os-linux-0.1 && dh_make -f ../fog05-plugin-os-linux-0.1.tar.gz -s -y"
 docker exec build bash -c 'cd /root/build/fog05-plugin-os-linux-0.1 && printf "override_dh_auto_install:\n\t\$(MAKE) LINUX_PLUGIN_DIR=\$\$(pwd)/debian/fog05-plugin-os-linux/etc/fos/plugins/plugin-os-linux SYSTEMD_DIR=\$\$(pwd)/debian/fog05-plugin-os-linux/lib/systemd/system/ install">> debian/rules'
 docker exec build bash -c 'cd /root/build/fog05-plugin-os-linux-0.1/debian && mkdir -p fog05-plugin-os-linux/lib/systemd/system/'
-docker cp template/changelog build:/root/build/fog05-plugin-os-linux-0.1/debian/changelog
-docker cp template/control build:/root/build/fog05-plugin-os-linux-0.1/debian/control
-docker cp template/copyright build:/root/build/fog05-plugin-os-linux-0.1/debian/copyright
+docker cp templates/changelog build:/root/build/fog05-plugin-os-linux-0.1/debian/changelog
+docker cp templates/control build:/root/build/fog05-plugin-os-linux-0.1/debian/control
+docker cp templates/copyright build:/root/build/fog05-plugin-os-linux-0.1/debian/copyright
 
 docker exec build bash -c "cd /root/build/fog05-plugin-os-linux-0.1 && debuild --preserve-envvar PATH -us -uc  && ls -l ../"
 docker exec build bash -c "cd /root/build/ && dpkg -I fog05-plugin-os-linux_0.1-1_amd64.deb"
