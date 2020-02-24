@@ -1,7 +1,0 @@
-Package: libzenoh-dev
-Version: 0.0.1-1
-Section: base
-Priority: optional
-Architecture: amd64
-Maintainer:  zenoh-dev@eclipse.org (Eclipse Zenoh)
-Description: Zero Overhead Pub/sub, Store/Query and Compute.

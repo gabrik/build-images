@@ -1,2 +1,5 @@
-language: c
+os: linux
+language: cpp
+services:
+  - docker
 script: bash -ex build_debs.sh

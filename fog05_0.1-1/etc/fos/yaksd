@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-/etc/fos/zenohd -P "/etc/fos/yaks-plugin.cmxs" -vv
