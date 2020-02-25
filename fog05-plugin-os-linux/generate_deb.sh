@@ -24,6 +24,6 @@ docker cp templates/copyright build:/root/build/fog05-plugin-os-linux-0.1/debian
 
 docker exec build bash -c "cd /root/build/fog05-plugin-os-linux-0.1 && debuild --preserve-envvar PATH -us -uc  && ls -l ../"
 docker exec build bash -c "cd /root/build/ && dpkg -I fog05-plugin-os-linux_0.1-1_amd64.deb"
-docker cp build:/root/build/fog05-plugin-os-linux_0.1-1_amd64.deb ./fog05-plugin-os-linux_0.1-1_amd64_debian_buster.deb
+docker cp build:/root/build/fog05-plugin-os-linux_0.1-1_amd64.deb ../fog05-plugin-os-linux_0.1-1_amd64_debian_buster.deb
 
 docker container rm --force build
