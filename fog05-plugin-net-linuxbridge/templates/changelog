@@ -1,0 +1,17 @@
+fog05-plugin-os-linux (0.1-1) unstable; urgency=medium
+
+  * Initial release
+  * bd9c758 - Gabriele Baldoni, Tue Feb 25 10:33:32 2020 +0100 : Adding proper debian package build (#3)
+  * 47226c6 - Gabriele Baldoni, Mon Jan 20 09:28:57 2020 +0100 : Merge pull request #2 from gabrik/master
+  * afa4ab8 - gabrik, Mon Jan 20 09:09:54 2020 +0100 : Added CONTRIBUTING and CONTRIBUTORS
+  * 6fdf25f - Gabriele Baldoni, Wed Jan 15 10:16:46 2020 +0100 : Merge pull request #1 from gabrik/master
+  * 837af49 - gabrik, Wed Jan 15 09:59:08 2020 +0100 : Added badges in readme
+  * 8c89d00 - gabrik, Tue Jan 14 16:02:25 2020 +0100 : updated bogus travis file
+  * 0ac884e - gabrik, Tue Jan 14 15:58:05 2020 +0100 : added bogus travis file
+  * b426c22 - gabrik, Tue Jan 14 08:43:22 2020 +0100 : fix in service file
+  * 025dea4 - gabrik, Mon Jan 13 17:31:14 2020 +0100 : fix typo in directory name in makefile
+  * 1a2c451 - gabrik, Mon Jan 13 17:24:45 2020 +0100 : fixing directory in Makefile
+  * aa41e95 - gabrik, Fri Nov 29 11:12:25 2019 +0100 : fix python sdk import
+  * 20d5d88 - gabrik, Wed Nov 6 12:52:56 2019 +0100 : initial
+
+ -- ADLINK Technology Inc <info@adlink-labs.tech>  Mon, 24 Feb 2020 14:55:27 +0000
