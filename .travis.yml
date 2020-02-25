@@ -4,12 +4,12 @@ services:
   - docker
 env:
   - PKG=fog05 VERSION=0.1.0 BRANCH=master
-  # - PKG=fog05-plugin-os-linux VERSION=0.1
-  # - PKG=fog05-plugin-net-linuxbridge VERSION=0.1
-  # - PKG=fog05-plugin-fdu-native VERSION=0.1
-  # - PKG=fog05-plugin-fdu-kvm VERSION=0.1
-  # - PKG=fog05-plugin-fdu-lxd VERSION=0.1
-  # - PKG=fog05-plugin-fdu-containerd VERSION=0.1
-  # - PKG=fog05-python3-sdk VERSION=0.1
-  # - PKG=fog05-python3-api VERSION=0.1
+  - PKG=fog05-plugin-os-linux VERSION=0.1.0 BRANCH=master
+  - PKG=fog05-plugin-net-linuxbridge VERSION=0.1.0 BRANCH=master
+  - PKG=fog05-plugin-fdu-native VERSION=0.1.0 BRANCH=master
+  - PKG=fog05-plugin-fdu-kvm VERSION=0.1.0 BRANCH=master
+  - PKG=fog05-plugin-fdu-lxd VERSION=0.1.0 BRANCH=master
+  - PKG=fog05-plugin-fdu-containerd VERSION=0.1.0 BRANCH=master
+  - PKG=fog05-python3-sdk VERSION=0.1.0 BRANCH=master
+  - PKG=fog05-python3-api VERSION=0.1.0 BRANCH=master
 script: bash -ex build_debs.sh

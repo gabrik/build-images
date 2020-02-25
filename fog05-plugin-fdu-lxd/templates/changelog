@@ -1,4 +1,4 @@
-fog05-plugin-fdu-lxd (0.1-1) unstable; urgency=medium
+fog05-plugin-fdu-lxd (FOSVERSION-1) unstable; urgency=medium
 
   * Initial release
   * b8723f4 - Gabriele Baldoni, Tue Feb 25 12:54:57 2020 +0100 : Added proper build of Debian package in travis (#3)
