@@ -1,5 +1,5 @@
 #!/bin/sh
-# postinst script for fog05-plugin-net-linuxbridge
+# postinst script for fog05-plugin-fdu-native
 #
 # see: dh_installdeb(1)
 
@@ -21,8 +21,8 @@ set -e
 case "$1" in
     configure)
         UUID=$(/etc/fos/to_uuid.sh)
-        sh -c "echo $UUID | xargs -i  jq  '.configuration.nodeid = \"{}\"' /etc/fos/plugins/plugin-net-linuxbridge/linuxbridge_plugin.json > /tmp/net_plugin.tmp && mv /tmp/net_plugin.tmp /etc/fos/plugins/plugin-net-linuxbridge/linuxbridge_plugin.json"
-        pip3 install psutil netifaces mvar
+        sh -c "echo $UUID | xargs -i  jq  '.configuration.nodeid = \"{}\"' /etc/fos/plugins/plugin-fdu-native/native_plugin.json > /tmp/fdu_plugin.tmp && mv /tmp/fdu_plugin.tmp /etc/fos/plugins/plugin-fdu-native/native_plugin.json"
+        pip3 install psutil mvar jinja2 pyangbind
         chown fos:fos -R /var/fos
         systemctl daemon-reload
     ;;

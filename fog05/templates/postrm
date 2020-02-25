@@ -1,6 +1,5 @@
 #!/bin/sh
-# postrm script for fog05-plugin-os-linux
-#
+# postrm script for fog05
 # see: dh_installdeb(1)
 
 set -e

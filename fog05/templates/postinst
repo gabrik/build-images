@@ -1,5 +1,5 @@
 #!/bin/sh
-# postinst script for fog05-plugin-os-linux
+# postinst script for fog05
 #
 # see: dh_installdeb(1)
 
