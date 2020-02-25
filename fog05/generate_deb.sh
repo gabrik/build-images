@@ -6,7 +6,7 @@ docker pull $DEBIAN
 docker run -it -d --name build $DEBIAN bash
 
 # install deps
-docker exec build apt install update
+docker exec build apt update
 docker exec build apt install build-essential devscripts lintian dh-make git wget jq libev-dev libssl-dev python3 python3-dev python3-pip m4 pkg-config rsync unzip cmake sudo -y
 docker exec build pip3 install pyangbind
 # install opam
