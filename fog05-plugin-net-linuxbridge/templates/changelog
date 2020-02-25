@@ -1,4 +1,4 @@
-fog05-plugin-net-linuxbridge(0.1-1) unstable; urgency=medium
+fog05-plugin-net-linuxbridge (0.1-1) unstable; urgency=medium
 
   * Initial release
   * bd9c758 - Gabriele Baldoni, Tue Feb 25 10:33:32 2020 +0100 : Adding proper debian package build (#3)
