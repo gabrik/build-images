@@ -5,8 +5,8 @@ set -e
 UBUNTU="ubuntu:bionic"
 DEBIAN="debian:10-slim"
 
-docker pull $DEBIAN
-docker run -it -d --name build $DEBIAN bash
+docker pull ${IMAGE}
+docker run -it -d --name build ${IMAGE} bash
 # deps
 docker exec build apt update
 docker exec build apt install build-essential devscripts lintian dh-make git wget jq python3 python3-dev python3-pip unzip cmake sudo -y
