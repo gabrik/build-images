@@ -10,4 +10,6 @@ env:
   - PKG=fog05-plugin-fdu-kvm
   - PKG=fog05-plugin-fdu-lxd
   - PKG=fog05-plugin-fdu-containerd
+  - PKG=fog05-python3-sdk
+  - PKG=fog05-python3-api
 script: bash -ex build_debs.sh

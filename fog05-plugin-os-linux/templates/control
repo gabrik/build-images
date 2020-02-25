@@ -10,7 +10,7 @@ Vcs-Git: https://github.com/eclipse-fog05/plugin-os-linux.git
 
 Package: fog05-plugin-os-linux
 Architecture: amd64
-Depends: python3 (>= 3.6), python3-pip (>= 9.0), python3-dev (>= 3.6), jq (>= 1.5), fog05 (= 0.1-1)
+Depends: python3 (>= 3.6), python3-pip (>= 9.0), python3-dev (>= 3.6), jq (>= 1.5), fog05 (= 0.1-1), python3-fog05-sdk (<= 0.1.9)
 Description: Eclipse fog05 Linux Plugin
  Eclipse fog05 Linux Plugin
  This plugin allow the interaction with common Linux distributions

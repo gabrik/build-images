@@ -12,7 +12,7 @@ docker exec build apt update
 docker exec build apt install build-essential devscripts lintian dh-make git wget jq unzip cmake sudo -y
 docker exec build bash -c "cd /root/ && git clone https://github.com/atolab/zenoh-c -b 0.3.0 --depth 1 && cd zenoh-c && make && make install"
 docker exec build bash -c "cd /root/ && wget https://dl.google.com/go/go1.13.8.linux-amd64.tar.gz && tar -C /usr/local -xzf  go1.13.8.linux-amd64.tar.gz"
-copying repo inside container
+# cloning repo inside container
 docker exec build bash -c "cd /root && git clone https://github.com/eclipse-fog05/plugin-fdu-containerd"
 
 docker exec build bash -c "export PATH=\$PATH:/usr/local/go/bin && cd /root/plugin-fdu-containerd && make && ldd plugin"

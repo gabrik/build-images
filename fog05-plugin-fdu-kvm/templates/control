@@ -10,6 +10,6 @@ Vcs-Git: https://github.com/eclipse-fog05/plugin-fdu-kvm
 
 Package: fog05-plugin-fdu-kvm
 Architecture: amd64
-Depends: python3 (>= 3.6), python3-pip (>= 9.0), python3-dev (>= 3.6), jq (>= 1.5), fog05 (= 0.1-1), libvirt-bin (>= 4.0.0), libvirt-dev (>= 4.0.0), python3-libvirt (>= 4.0.0), seabios (>= 1.10), libguestfs-tools, qemu-kvm
+Depends: python3 (>= 3.6), python3-pip (>= 9.0), python3-dev (>= 3.6), jq (>= 1.5), fog05 (= 0.1-1), libvirt-bin (>= 4.0.0), libvirt-dev (>= 4.0.0), python3-libvirt (>= 4.0.0), seabios (>= 1.10), libguestfs-tools, qemu-kvm, python3-fog05-sdk (<= 0.1.9)
 Description: Eclipse fog05 KVM Plugin
  This plugin allow to manage KVM VMs as FDUs
