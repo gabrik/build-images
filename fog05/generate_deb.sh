@@ -35,6 +35,7 @@ docker exec build bash -c 'cd /root/build/fog05-0.1 && printf "override_dh_auto_
 
 docker cp templates/changelog build:/root/build/fog05-0.1/debian/changelog
 docker cp templates/postinst build:/root/build/fog05-0.1/debian/postinst
+docker cp templates/postrm build:/root/build/fog05-0.1/debian/postrm
 docker cp templates/control build:/root/build/fog05-0.1/debian/control
 docker cp templates/copyright build:/root/build/fog05-0.1/debian/copyright
 
