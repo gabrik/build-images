@@ -30,7 +30,6 @@ case "$PKG" in
         cd fog05-plugin-fdu-containerd
         ./generate_deb.sh
     ;;
-        ;;
     fog05-python3-sdk)
         cd fog05-python3-sdk
         ./generate_deb.sh
