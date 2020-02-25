@@ -4,6 +4,7 @@ set -e
 cd fog05-plugin-os-linux && ./generate_deb.sh && cd ..
 cd fog05-plugin-net-linuxbridge && ./generate_deb.sh && cd ..
 cd fog05-plugin-fdu-native && ./generate_deb.sh && cd ..
+cd fog05-plugin-fdu-kvm && ./generate_deb.sh && cd ..
 cd fog05 && ./generate_deb.sh && cd ..
 
 
