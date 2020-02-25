@@ -21,7 +21,7 @@ docker exec build bash -c "cd /root/ && git clone https://github.com/eclipse-fog
 docker exec build bash -c "cd /root/ && git clone https://github.com/gabrik/plugin-fdu-kvm -b ${BRANCH} --depth 1"
 docker exec build bash -c "mkdir /root/build && cd /root && cp -r plugin-fdu-kvm build/fog05-plugin-fdu-kvm-${VERSION} && cd build/fog05-plugin-fdu-kvm-${VERSION} && rm -rf .git && make clean && cd .. && tar -czvf fog05-plugin-fdu-kvm-${VERSION}.tar.gz fog05-plugin-fdu-kvm-${VERSION}"
 docker exec build bash -c "export DEBEMAIL=\"info@adlink-labs.tech\" && export DEBFULLNAME=\"ADLINK Technology Inc\" && cd /root/build/fog05-plugin-fdu-kvm-${VERSION} && dh_make -f ../fog05-plugin-fdu-kvm-${VERSION}.tar.gz -s -y"
-docker exec build -e VERSION=${VERSION} bash -c 'cd /root/build/fog05-plugin-fdu-kvm-${VERSION} && printf "override_dh_auto_install:\n\tmkdir -p \$\$(pwd)/debian/fog05-plugin-fdu-kvm/lib/systemd/system/\n\t\$(MAKE) KVM_PLUGIN_DIR=\$\$(pwd)/debian/fog05-plugin-fdu-kvm/etc/fos/plugins/plugin-fdu-kvm SYSTEMD_DIR=\$\$(pwd)/debian/fog05-plugin-fdu-kvm/lib/systemd/system/ install">> debian/rules'
+docker exec -e VERSION=${VERSION} build bash -c 'cd /root/build/fog05-plugin-fdu-kvm-${VERSION} && printf "override_dh_auto_install:\n\tmkdir -p \$\$(pwd)/debian/fog05-plugin-fdu-kvm/lib/systemd/system/\n\t\$(MAKE) KVM_PLUGIN_DIR=\$\$(pwd)/debian/fog05-plugin-fdu-kvm/etc/fos/plugins/plugin-fdu-kvm SYSTEMD_DIR=\$\$(pwd)/debian/fog05-plugin-fdu-kvm/lib/systemd/system/ install">> debian/rules'
 
 sed -i "s/FOSVERSION/${VERSION}/g" templates/changelog
 docker cp templates/changelog build:/root/build/fog05-plugin-fdu-kvm-${VERSION}/debian/changelog
