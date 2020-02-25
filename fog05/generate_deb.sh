@@ -46,6 +46,6 @@ docker exec build bash -c "eval \$(opam env) && cd /root/build/fog05-${VERSION} 
 docker exec build bash -c "cd /root/build/ && dpkg -I fog05_${VERSION}-1_amd64.deb"
 
 
-docker cp build:/root/build/fog05_${VERSION}-1_amd64.deb ../fog05_${VERSION}-1_amd64_debian_buster.deb
+docker cp build:/root/build/fog05_${VERSION}-1_amd64.deb ../fog05_${VERSION}-1_amd64_${IMAGE}.deb
 
 docker container rm --force build
