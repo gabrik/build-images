@@ -20,7 +20,7 @@ set -e
 
 case "$1" in
     configure)
-        UUID=$(/etc/fos/node_uuid.sh)
+        UUID=$(/etc/fos/to_uuid.sh)
         sh -c "echo $UUID | xargs -i  jq  '.configuration.nodeid = \"{}\"' /etc/fos/plugins/plugin-os-linux/linux_plugin.json > /tmp/os_plugin.tmp && mv /tmp/os_plugin.tmp /etc/fos/plugins/plugin-os-linux/linux_plugin.json"
         pip3 install psutil netifaces mvar
         systemctl daemon-reload
