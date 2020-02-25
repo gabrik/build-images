@@ -26,6 +26,10 @@ case "$PKG" in
         cd fog05-plugin-fdu-lxd
         ./generate_deb.sh
     ;;
+    fog05-plugin-fdu-containerd)
+        cd fog05-plugin-fdu-containerd
+        ./generate_deb.sh
+    ;;
     *)
     ;;
 esac

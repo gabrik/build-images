@@ -9,4 +9,5 @@ env:
   - PKG=fog05-plugin-fdu-native
   - PKG=fog05-plugin-fdu-kvm
   - PKG=fog05-plugin-fdu-lxd
+  - PKG=fog05-plugin-fdu-containerd
 script: bash -ex build_debs.sh
