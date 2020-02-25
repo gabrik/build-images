@@ -22,7 +22,7 @@ set -e
 case "$1" in
     purge|remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
     userdel fos
-    rm -rf /var/fos
+    rm -rf /var/foss
     ;;
 
     *)

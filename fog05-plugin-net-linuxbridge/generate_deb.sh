@@ -1,4 +1,7 @@
 #!/bin/bash
+
+set -e
+
 UBUNTU="ubuntu:bionic"
 DEBIAN="debian:10-slim"
 
