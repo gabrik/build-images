@@ -1,4 +1,4 @@
-fog05 (0.1-1) unstable; urgency=medium
+fog05 (FOSVERSION) unstable; urgency=medium
 
   * Initial release
   * efe78c6 - Gabriele Baldoni, Mon Feb 24 13:19:09 2020 +0100 : Building .deb file during Travis CI (#3)

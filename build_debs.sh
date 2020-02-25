@@ -1,6 +1,23 @@
 #!/bin/bash
 set -e
 
+if [[ -z "${VERSION}" ]]; then
+  printf "Need to set the expected version of the packages!!\n"
+  exit 1
+fi
+
+
+if [[ -z "${BRANCH}" ]]; then
+  export BRANCH="master"
+fi
+
+if [[ -z "${IMAGE}" ]]; then
+  export IMAGE="debian:10-slim"
+fi
+
+
+printf "Staring building of debian package ${PKG}-${VERSION} from branch ${BRANCH} using image ${IMAGE}\n"
+
 case "$PKG" in
     fog05)
         cd fog05
@@ -39,17 +56,19 @@ case "$PKG" in
         ./generate_deb.sh
     ;;
     all)
-    cd fog05 && ./generate_deb.sh && cd ..
-    cd fog05-plugin-os-linux && ./generate_deb.sh && cd ..
-    cd fog05-plugin-net-linuxbridge && ./generate_deb.sh && cd ..
-    cd fog05-plugin-fdu-native && ./generate_deb.sh && cd ..
-    cd fog05-plugin-fdu-kvm && ./generate_deb.sh && cd ..
-    cd fog05-plugin-fdu-lxd && ./generate_deb.sh && cd ..
-    cd fog05-plugin-fdu-containerd && ./generate_deb.sh && cd ..
+    for d in */; do
+        printf "Entering $d\n"
+        cd $d
+        ./generate_deb.sh
+        printf "Leaving $d\n"
+        cd ..
+    done
     mkdir debs
     mv *.deb debs/
     ;;
     *)
+    printf "Unrecognized package name $PKG\n"
+    exit 1
     ;;
 esac
 
