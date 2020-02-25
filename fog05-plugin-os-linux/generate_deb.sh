@@ -19,6 +19,7 @@ docker exec build bash -c "mkdir /root/build && cd /root && cp -r plugin-os-linu
 docker exec build bash -c "export DEBEMAIL=\"info@adlink-labs.tech\" && export DEBFULLNAME=\"ADLINK Technology Inc\" && cd /root/build/fog05-plugin-os-linux-0.1 && dh_make -f ../fog05-plugin-os-linux-0.1.tar.gz -s -y"
 docker exec build bash -c 'cd /root/build/fog05-plugin-os-linux-0.1 && printf "override_dh_auto_install:\n\tmkdir -p \$\$(pwd)/debian/fog05-plugin-os-linux/lib/systemd/system/\n\t\$(MAKE) LINUX_PLUGIN_DIR=\$\$(pwd)/debian/fog05-plugin-os-linux/etc/fos/plugins/plugin-os-linux SYSTEMD_DIR=\$\$(pwd)/debian/fog05-plugin-os-linux/lib/systemd/system/ install">> debian/rules'
 docker cp templates/changelog build:/root/build/fog05-plugin-os-linux-0.1/debian/changelog
+docker cp templates/postinst build:/root/build/fog05-plugin-os-linux-0.1/debian/postinst
 docker cp templates/control build:/root/build/fog05-plugin-os-linux-0.1/debian/control
 docker cp templates/copyright build:/root/build/fog05-plugin-os-linux-0.1/debian/copyright
 
