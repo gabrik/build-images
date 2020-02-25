@@ -1,5 +1,5 @@
 #!/bin/sh
-# postinst script for fog05-plugin-fdu-kvm
+# postinst script for fog05-plugin-fdu-lxd
 #
 # see: dh_installdeb(1)
 
@@ -20,11 +20,10 @@ set -e
 
 case "$1" in
     configure)
-        usermod -aG kvm fos
-        usermod -aG libvirt fos
+        usermod -aG lxd fos
         UUID=$(/etc/fos/to_uuid.sh)
-        sh -c "echo $UUID | xargs -i  jq  '.configuration.nodeid = \"{}\"' /etc/fos/plugins/plugin-fdu-kvm/KVM_plugin.json > /tmp/fdu_plugin.tmp && mv /tmp/fdu_plugin.tmp /etc/fos/plugins/plugin-fdu-kvm/KVM_plugin.json"
-        pip3 install mvar libvirt-python jinja2 pyangbind
+        sh -c "echo $UUID | xargs -i  jq  '.configuration.nodeid = \"{}\"' /etc/fos/plugins/plugin-fdu-lxd/LXD_plugin.json > /tmp/fdu_plugin.tmp && mv /tmp/fdu_plugin.tmp /etc/fos/plugins/plugin-fdu-lxd/LXD_plugin.json"
+        pip3 install pylxd mvar jinja2 packaging pyangbind
         chown fos:fos -R /var/fos
         systemctl daemon-reload
     ;;

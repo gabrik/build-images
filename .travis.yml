@@ -2,4 +2,11 @@ os: linux
 language: cpp
 services:
   - docker
+env:
+  - PKG=fog05
+  - PKG=fog05-plugin-os-linux
+  - PKG=fog05-plugin-net-linuxbridge
+  - PKG=fog05-plugin-fdu-native
+  - PKG=fog05-plugin-fdu-kvm
+  - PKG=fog05-plugin-fdu-lxd
 script: bash -ex build_debs.sh
