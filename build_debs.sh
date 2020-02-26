@@ -55,6 +55,16 @@ case "$PKG" in
         cd fog05-python3-api
         ./generate_deb.sh
     ;;
+    zenoh)
+        cd zenoh
+        ./generate_deb.sh
+    ;;
+    debian-ocaml)
+    sg docker -c "docker build ./deb10-ocaml -f ./deb10-ocaml/Dockerfile -t fog05/debian-build --no-cache"
+    ;;
+    ubuntu-ocaml)
+    sg docker -c "docker build ./ubu18-ocaml -f ./ubu18-ocaml/Dockerfile -t fog05/ubuntu-build --no-cache"
+    ;;
     all)
     for d in */; do
         printf "Entering $d\n"

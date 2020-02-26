@@ -1,0 +1,17 @@
+Source: zenoh
+Section: unkown
+Priority: optional
+Maintainer: ATO Labs <info@adlink-labs.tech>
+Build-Depends: debhelper (>= 11)
+Standards-Version: 4.1.3
+Homepage: https://zenoh.io
+Vcs-Browser: https://github.com/eclipse-zenoh/zenoh
+Vcs-Git: https://github.com/eclipse-zenoh/zenoh.git
+
+Package: zenoh
+Architecture: amd64
+Depends: libc6 (>= 2.28), libev4 (>= 1:4.04), libssl1.1 (>= 1.1.0)
+Description: Eclipse Zenoh
+ zenoh unifies data in motion, data in-use, data at rest and computations.
+ It carefully blends traditional pub/sub with geo-distributed storages, queries and computations,
+while retaining a level of time and space efficiency that is well beyond any of the mainstream stacks.

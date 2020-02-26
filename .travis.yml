@@ -12,4 +12,5 @@ env:
   - PKG=fog05-plugin-fdu-containerd VERSION=0.1.0 BRANCH=master
   - PKG=fog05-python3-sdk VERSION=0.1.0 BRANCH=master
   - PKG=fog05-python3-api VERSION=0.1.0 BRANCH=master
+  - PKG=zenoh VERSION=0.1.0 BRANCH=master IMAGE=fog05/debian-build
 script: bash -ex build_debs.sh
