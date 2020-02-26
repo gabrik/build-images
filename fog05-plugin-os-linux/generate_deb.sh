@@ -19,7 +19,7 @@ docker exec build bash -c "cd /root/ && git clone https://github.com/atolab/yaks
 docker exec build bash -c "cd /root/ && git clone https://github.com/eclipse-fog05/sdk-python -b v0.1.0 --depth 1 && cd sdk-python && make && make install"
 docker exec build bash -c "cd /root/ && git clone https://github.com/eclipse-fog05/api-python -b v0.1.0 --depth 1 && cd api-python && make install"
 # building deb file
-docker exec build bash -c "cd /root/ && git clone https://github.com/gabrik/plugin-os-linux  -b ${BRANCH} --depth 1"
+docker exec build bash -c "cd /root/ && git clone https://github.com/eclipse-fog05/plugin-os-linux  -b ${BRANCH} --depth 1"
 docker exec build bash -c "mkdir /root/build && cd /root && cp -r plugin-os-linux build/fog05-plugin-os-linux-${VERSION} && cd build/fog05-plugin-os-linux-${VERSION} && rm -rf .git && make clean && cd .. && tar -czvf fog05-plugin-os-linux-${VERSION}.tar.gz fog05-plugin-os-linux-${VERSION}"
 docker exec build bash -c "export DEBEMAIL=\"info@adlink-labs.tech\" && export DEBFULLNAME=\"ADLINK Technology Inc\" && cd /root/build/fog05-plugin-os-linux-${VERSION} && dh_make -f ../fog05-plugin-os-linux-${VERSION}.tar.gz -s -y"
 docker exec -e VERSION=${VERSION}  build bash -c 'cd /root/build/fog05-plugin-os-linux-${VERSION} && printf "override_dh_auto_install:\n\tmkdir -p \$\$(pwd)/debian/fog05-plugin-os-linux/lib/systemd/system/\n\t\$(MAKE) LINUX_PLUGIN_DIR=\$\$(pwd)/debian/fog05-plugin-os-linux/etc/fos/plugins/plugin-os-linux SYSTEMD_DIR=\$\$(pwd)/debian/fog05-plugin-os-linux/lib/systemd/system/ install">> debian/rules'

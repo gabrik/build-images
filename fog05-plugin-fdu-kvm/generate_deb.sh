@@ -18,7 +18,7 @@ docker exec build bash -c "cd /root/ && git clone https://github.com/atolab/yaks
 docker exec build bash -c "cd /root/ && git clone https://github.com/eclipse-fog05/sdk-python -b v0.1.0 --depth 1 && cd sdk-python && make && make install"
 docker exec build bash -c "cd /root/ && git clone https://github.com/eclipse-fog05/api-python -b v0.1.0 --depth 1 && cd api-python && make install"
 # building deb file
-docker exec build bash -c "cd /root/ && git clone https://github.com/gabrik/plugin-fdu-kvm -b ${BRANCH} --depth 1"
+docker exec build bash -c "cd /root/ && git clone https://github.com/eclipse-fog05/plugin-fdu-kvm -b ${BRANCH} --depth 1"
 docker exec build bash -c "mkdir /root/build && cd /root && cp -r plugin-fdu-kvm build/fog05-plugin-fdu-kvm-${VERSION} && cd build/fog05-plugin-fdu-kvm-${VERSION} && rm -rf .git && make clean && cd .. && tar -czvf fog05-plugin-fdu-kvm-${VERSION}.tar.gz fog05-plugin-fdu-kvm-${VERSION}"
 docker exec build bash -c "export DEBEMAIL=\"info@adlink-labs.tech\" && export DEBFULLNAME=\"ADLINK Technology Inc\" && cd /root/build/fog05-plugin-fdu-kvm-${VERSION} && dh_make -f ../fog05-plugin-fdu-kvm-${VERSION}.tar.gz -s -y"
 docker exec -e VERSION=${VERSION} build bash -c 'cd /root/build/fog05-plugin-fdu-kvm-${VERSION} && printf "override_dh_auto_install:\n\tmkdir -p \$\$(pwd)/debian/fog05-plugin-fdu-kvm/lib/systemd/system/\n\t\$(MAKE) KVM_PLUGIN_DIR=\$\$(pwd)/debian/fog05-plugin-fdu-kvm/etc/fos/plugins/plugin-fdu-kvm SYSTEMD_DIR=\$\$(pwd)/debian/fog05-plugin-fdu-kvm/lib/systemd/system/ install">> debian/rules'

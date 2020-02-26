@@ -16,7 +16,7 @@ docker exec build pip3 install pyangbind sphinx stdeb
 docker exec build bash -c "cd /root/ && git clone https://github.com/atolab/zenoh-c -b 0.3.0 --depth 1 && cd zenoh-c && make && make install"
 docker exec build bash -c "cd /root/ && git clone https://github.com/atolab/zenoh-python -b 0.3.0 --depth 1 && cd zenoh-python && python3 setup.py install"
 docker exec build bash -c "cd /root/ && git clone https://github.com/atolab/yaks-python -b 0.3.0 --depth 1 && cd yaks-python && make install"
-docker exec build bash -c "cd /root/ && git clone https://github.com/gabrik/sdk-python -b ${BRANCH} --depth 1 fog05-sdk-${VERSION}"
+docker exec build bash -c "cd /root/ && git clone https://github.com/eclipse-fog05/sdk-python -b ${BRANCH} --depth 1 fog05-sdk-${VERSION}"
 # build package
 docker exec build bash -c "cd /root/fog05-sdk-${VERSION} && make"
 #build deb
