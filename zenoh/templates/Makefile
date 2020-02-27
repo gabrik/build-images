@@ -24,10 +24,10 @@ install:
 
 ifeq "$(wildcard $(ZENOH_DIR))" ""
 	sudo mkdir -p $(ZENOH_DIR)
-	install -m 0755 _build/default/src/zenoh-router-daemon/zenohd.exe $(ZENOH_DIR)/zenoh
+	install -m 0755 _build/default/src/zenoh-router-daemon/zenohd.exe $(ZENOH_DIR)/zenohd
 	install _build/default/src/yaks/yaks-plugin.cmxs $(ZENOH_DIR)/yaks-plugin.cmxs
 else
-	install -m 0755 _build/default/src/zenoh-router-daemon/zenohd.exe $(ZENOH_DIR)/zenoh
+	install -m 0755 _build/default/src/zenoh-router-daemon/zenohd.exe $(ZENOH_DIR)/zenohd
 	install _build/default/src/yaks/yaks-plugin.cmxs $(ZENOH_DIR)/yaks-plugin.cmxs
 endif
 	sudo cp zenoh.service $(SYSTEMD_DIR)

@@ -11,4 +11,4 @@ KillMode=process
 Restart=on-failure
 [Install]
 WantedBy=multi-user.target
-Alias=yaks.service
+Alias=zenoh.service
