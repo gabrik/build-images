@@ -59,6 +59,10 @@ case "$PKG" in
         cd zenoh
         ./generate_deb.sh
     ;;
+    libzenoh)
+        cd libzenoh
+        ./generate_deb.sh
+    ;;
     debian-ocaml)
     sg docker -c "docker build ./deb10-ocaml -f ./deb10-ocaml/Dockerfile -t fog05/debian-build --no-cache"
     ;;
@@ -69,7 +73,9 @@ case "$PKG" in
     for d in */; do
         printf "Entering $d\n"
         cd $d
-        ./generate_deb.sh
+        if [-f "generate_deb.sh"]; then
+             ./generate_deb.sh
+        fi
         printf "Leaving $d\n"
         cd ..
     done

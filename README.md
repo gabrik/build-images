@@ -10,5 +10,10 @@
 # Eclipse fog05 Debian Packages repository
 This repository contains the script to build the debian packages of Eclipse fog05
 
+It also contains scripts to build debian packages from the sources of:
+
+ - zenohd + YAKS Plugin 0.3.0
+ - libzenoh 0.3.0
+
 
 
