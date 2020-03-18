@@ -10,6 +10,6 @@ Vcs-Git: https://github.com/eclipse-fog05/agent.git
 
 Package: fog05
 Architecture: amd64
-Depends: libc6 (>= 2.28), libev4 (>= 1:4.04), libssl1.1 (>= 1.1.0)
+Depends: libc6 (>= 2.27), libev4 (>= 1:4.04), libssl1.1 (>= 1.1.0)
 Description: Eclipse fog05 Agent
  Closed loop management of device, LCM of plugins
