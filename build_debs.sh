@@ -15,6 +15,9 @@ if [[ -z "${IMAGE}" ]]; then
   export IMAGE="debian:10-slim"
 fi
 
+if [[ -z "${TAG}" ]]; then
+  export TAG="latest"
+fi
 
 printf "Staring building of debian package ${PKG}-${VERSION} from branch ${BRANCH} using image ${IMAGE}\n"
 
@@ -64,10 +67,10 @@ case "$PKG" in
         ./generate_deb.sh
     ;;
     debian-ocaml)
-    sg docker -c "docker build ./deb10-ocaml -f ./deb10-ocaml/Dockerfile -t fog05/debian-build --no-cache"
+    sg docker -c "docker build ./deb10-ocaml -f ./deb10-ocaml/Dockerfile -t fog05/debian-build:$TAG --no-cache" --oom-kill-disable
     ;;
     ubuntu-ocaml)
-    sg docker -c "docker build ./ubu18-ocaml -f ./ubu18-ocaml/Dockerfile -t fog05/ubuntu-build --no-cache"
+    sg docker -c "docker build ./ubu18-ocaml -f ./ubu18-ocaml/Dockerfile -t fog05/ubuntu-build:$TAG --no-cache" --oom-kill-disable
     ;;
     all)
     for d in */; do
