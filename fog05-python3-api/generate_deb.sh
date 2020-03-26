@@ -22,6 +22,6 @@ docker exec build bash -c "cd /root && mkdir build && tar -czvf build/fog05-api-
 docker exec build bash -c "cd /root/build && py2dsc fog05-api-${VERSION}.tar.gz"
 docker exec build bash -c "cd /root/build/deb_dist/fog05-${VERSION} && dpkg-buildpackage -rfakeroot -uc -us"
 docker exec build bash -c "cd /root/build/deb_dist/ && dpkg -I python3-fog05_${VERSION}-1_all.deb"
-docker cp build:/root/build/deb_dist/python3-fog05_${VERSION}-1_all.deb ../python3-fog05_${VERSION}-1_all_${IMAGE}.deb
+docker cp build:/root/build/deb_dist/python3-fog05_${VERSION}-1_all.deb ../python3-fog05_${VERSION}-1_all.deb
 
 docker container rm --force build

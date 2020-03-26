@@ -14,8 +14,8 @@ docker exec build pip3 install pyangbind sphinx
 docker exec build bash -c "cd /root/ && git clone https://github.com/atolab/zenoh-c -b 0.3.0 --depth 1 && cd zenoh-c && make && make install"
 docker exec build bash -c "cd /root/ && git clone https://github.com/atolab/zenoh-python -b 0.3.0 --depth 1 && cd zenoh-python && python3 setup.py install"
 docker exec build bash -c "cd /root/ && git clone https://github.com/atolab/yaks-python -b 0.3.0 --depth 1 && cd yaks-python && make install"
-docker exec build bash -c "cd /root/ && git clone https://github.com/eclipse-fog05/sdk-python -b 0.1.x --depth 1 && cd sdk-python && make && make install"
-docker exec build bash -c "cd /root/ && git clone https://github.com/eclipse-fog05/api-python -b 0.1.x --depth 1 && cd api-python && make install"
+docker exec build bash -c "cd /root/ && git clone https://github.com/eclipse-fog05/sdk-python -b master --depth 1 && cd sdk-python && make && make install"
+docker exec build bash -c "cd /root/ && git clone https://github.com/eclipse-fog05/api-python -b master --depth 1 && cd api-python && make install"
 # building deb file
 docker exec build bash -c "cd /root/ && git clone https://github.com/eclipse-fog05/plugin-fdu-lxd -b ${BRANCH} --depth 1"
 docker exec build bash -c "mkdir /root/build && cd /root && cp -r plugin-fdu-lxd build/fog05-plugin-fdu-lxd-${VERSION} && cd build/fog05-plugin-fdu-lxd-${VERSION} && rm -rf .git && make clean && cd .. && tar -czvf fog05-plugin-fdu-lxd-${VERSION}.tar.gz fog05-plugin-fdu-lxd-${VERSION}"
