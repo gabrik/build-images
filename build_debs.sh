@@ -38,6 +38,10 @@ case "$PKG" in
         cd fog05-plugin-fdu-native
         ./generate_deb.sh
         ;;
+    fog05-plugin-fdu-ros2)
+        cd fog05-plugin-fdu-native
+        ./generate_deb.sh
+        ;;
     fog05-plugin-fdu-kvm)
         cd fog05-plugin-fdu-kvm
         ./generate_deb.sh
