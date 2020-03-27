@@ -17,6 +17,9 @@ docker exec build bash -c "cd /root/ && git clone https://github.com/atolab/zeno
 docker exec build bash -c "cd /root/ && git clone https://github.com/atolab/zenoh-python -b 0.3.0 --depth 1 && cd zenoh-python && python3 setup.py install"
 docker exec build bash -c "cd /root/ && git clone https://github.com/atolab/yaks-python -b 0.3.0 --depth 1 && cd yaks-python && make install"
 docker exec build bash -c "cd /root/ && git clone https://github.com/eclipse-fog05/api-python -b ${BRANCH} --depth 1 fog05-api-${VERSION}"
+# normalize version to facilitate build
+docker exec -e VERSION=${VERSION} build bash -c 'sed -i "s/0.2.0a/${VERSION}/g" /root/fog05-api-${VERSION}/setup.py'
+
 #build deb
 docker exec build bash -c "cd /root && mkdir build && tar -czvf build/fog05-api-${VERSION}.tar.gz fog05-api-${VERSION}"
 docker exec build bash -c "cd /root/build && py2dsc fog05-api-${VERSION}.tar.gz"

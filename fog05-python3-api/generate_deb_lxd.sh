@@ -17,8 +17,11 @@ lxc exec build -- bash -c "cd /root/ && git clone https://github.com/atolab/yaks
 
 # clone repo
 lxc exec build -- bash -c "cd /root/ && git clone https://github.com/eclipse-fog05/api-python -b ${BRANCH} --depth 1 fog05-api-${VERSION}"
-# building a debian package
 
+# normalize version to facilitate build
+lxc exec --env VERSION=${VERSION} build -- bash -c 'sed -i "s/0.2.0a/${VERSION}/g" /root/fog05-api-${VERSION}/setup.py'
+
+# building a debian package
 lxc exec build -- bash -c "cd /root && mkdir build && tar -czvf build/fog05-api-${VERSION}.tar.gz fog05-api-${VERSION}"
 lxc exec build -- bash -c "cd /root/build && py2dsc fog05-api-${VERSION}.tar.gz"
 lxc exec build -- bash -c "cd /root/build/deb_dist/fog05-${VERSION} && dpkg-buildpackage -rfakeroot -uc -us"

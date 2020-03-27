@@ -19,6 +19,8 @@ docker exec build bash -c "cd /root/ && git clone https://github.com/atolab/yaks
 docker exec build bash -c "cd /root/ && git clone https://github.com/eclipse-fog05/sdk-python -b ${BRANCH} --depth 1 fog05-sdk-${VERSION}"
 # build package
 docker exec build bash -c "cd /root/fog05-sdk-${VERSION} && make"
+# normalize version to facilitate build
+docker exec -e VERSION=${VERSION} build bash -c 'sed -i "s/0.2.0a/${VERSION}/g" /root/fog05-sdk-${VERSION}/setup.py'
 #build deb
 docker exec build bash -c "cd /root && mkdir build && tar -czvf build/fog05-sdk-${VERSION}.tar.gz fog05-sdk-${VERSION}"
 docker exec build bash -c "cd /root/build && py2dsc fog05-sdk-${VERSION}.tar.gz"
