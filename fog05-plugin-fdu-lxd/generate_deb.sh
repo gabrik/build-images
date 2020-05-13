@@ -10,6 +10,7 @@ docker run -it -d --name build ${IMAGE} bash
 # deps
 docker exec build apt update
 docker exec build apt install build-essential devscripts lintian dh-make git wget jq python3 python3-dev python3-pip unzip cmake sudo -y
+docker exec build groupadd lxd
 docker exec build bash -c "cd /root/ && git clone https://github.com/atolab/zenoh-c -b 0.3.0 --depth 1 && cd zenoh-c && make && make install"
 docker exec build pip3 install pyangbind sphinx zenoh==0.3.0 yaks==0.3.0.post1
 docker exec build bash -c "cd /root/ && git clone https://github.com/eclipse-fog05/sdk-python -b ${BRANCH} --depth 1 && cd sdk-python && make && make install"
