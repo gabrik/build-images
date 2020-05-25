@@ -46,7 +46,7 @@ docker exec build-z bash -c "cd /root/build/ && dpkg -I zenoh_${VERSION}-1_amd64
 
 docker cp build-z:/root/build/zenoh_${VERSION}-1_amd64.deb ../zenoh_${VERSION}-1_amd64.deb
 
-docker exec build-z bash -c "cd /root/yaks && make && cd .. && tar -czvf zenoh-${VERSION}.tar.gz agent"
+docker exec build-z bash -c "eval \$(opam env) && cd /root/yaks && make && cd .. && tar -czvf zenoh-${VERSION}.tar.gz agent"
 docker cp build-z:/root/ zenoh-${VERSION}.tar.gz ../ zenoh-${VERSION}.tar.gz
 
 
