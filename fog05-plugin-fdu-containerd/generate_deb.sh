@@ -6,7 +6,7 @@ UBUNTU="ubuntu:bionic"
 DEBIAN="debian:10-slim"
 
 docker pull ${IMAGE}
-docker run -it -d --name build ${IMAGE} bash
+docker run -it -d --name build-ctd ${IMAGE} bash
 docker exec build-ctd apt update
 # install deps
 docker exec build-ctd apt install build-essential devscripts lintian dh-make git wget jq unzip cmake sudo -y
