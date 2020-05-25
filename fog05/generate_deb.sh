@@ -33,7 +33,7 @@ docker exec build-agent bash -c "cd /root && git clone https://github.com/eclips
 docker exec build-agent bash -c "eval \$(opam env) && mkdir /root/build && cd /root && cp -r agent build/fog05-${VERSION} && cd build/fog05-${VERSION} && rm -rf .git && make clean && cd .. && tar -czvf fog05-${VERSION}.tar.gz fog05-${VERSION}"
 docker exec build-agent-agent bash -c "eval \$(opam env) && cd /root/build/fog05-${VERSION} && make clean"
 docker exec build bash -c "eval \$(opam env) && export DEBEMAIL=\"info@adlink-labs.tech\" && export DEBFULLNAME=\"ADLINK Technology Inc.\" && cd /root/build/fog05-${VERSION} && dh_make -f ../fog05-${VERSION}.tar.gz -s -y"
-docker exec -e VERSION=${VERSION} build bash -c 'cd /root/build/fog05-${VERSION} && printf "override_dh_auto_install:\n\tmkdir -p \$\$(pwd)/debian/fog05/lib/systemd/system/\n\t\$(MAKE) FOS_DIR=\$\$(pwd)/debian/fog05/etc/fos SYSTEMD_DIR=\$\$(pwd)/debian/fog05/lib/systemd/system/ install\n">> debian/rules'
+docker exec -e VERSION=${VERSION} build build-agent -c 'cd /root/build/fog05-${VERSION} && printf "override_dh_auto_install:\n\tmkdir -p \$\$(pwd)/debian/fog05/lib/systemd/system/\n\t\$(MAKE) FOS_DIR=\$\$(pwd)/debian/fog05/etc/fos SYSTEMD_DIR=\$\$(pwd)/debian/fog05/lib/systemd/system/ install\n">> debian/rules'
 
 sed -i "s/FOSVERSION/${VERSION}/g" templates/changelog
 docker cp templates/changelog build-agent:/root/build/fog05-${VERSION}/debian/changelog
