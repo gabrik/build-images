@@ -35,6 +35,7 @@ lxc exec build -- bash -c "cd /root/build/fog05-plugin-fdu-native-${VERSION} && 
 lxc exec build -- bash -c "cd /root/build/ && dpkg -I fog05-plugin-fdu-native_${VERSION}-1_amd64.deb"
 
 
+
 lxc file pull build/root/build/fog05-plugin-fdu-native_${VERSION}-1_amd64.deb ../fog05-plugin-fdu-native_${VERSION}-1_amd64_${IMAGE}.deb
 
 lxc delete --force build
