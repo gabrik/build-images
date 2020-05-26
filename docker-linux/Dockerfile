@@ -20,4 +20,4 @@ RUN cd /root && chmod +x start.sh
 
 RUN mkdir -p /var/fos
 
-CMD start.sh
+CMD /root/start.sh
