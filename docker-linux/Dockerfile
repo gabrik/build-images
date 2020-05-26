@@ -5,7 +5,7 @@ LABEL authors="Gabriele Baldoni"
 
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -qq && \
-    DEBIAN_FRONTEND=noninteractive apt-get -y install make python3 python3-pip jq git wget
+    DEBIAN_FRONTEND=noninteractive apt-get -y install sudo make python3 python3-pip jq git wget
 COPY libzenoh-0.3.0-Linux.deb /root/
 RUN dpkg -i /root/libzenoh-0.3.0-Linux.deb
 COPY start.sh /root/
