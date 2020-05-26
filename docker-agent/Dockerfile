@@ -9,8 +9,9 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -qq && \
 COPY fog05-0.2.0.tar.gz /root/
 COPY start.sh /root/
 RUN cd /root && tar -xzvf fog05-0.2.0.tar.gz
-COPY templates/Makefile_agent /root/agent/Makefile
-RUN cd /root/agent && make install
+RUN mkdir -p /etc/fos
+RUN install -m 0755 /root/agent/_build/default/fos-agent/fos_agent.exe /etc/fos/agent
+RUN install /root/agent/etc/agent.json  /etc/fos/agent.json
 RUN cd /root && chmod +x start.sh
 
 RUN mkdir -p /var/fos
