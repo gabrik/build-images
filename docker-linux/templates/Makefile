@@ -13,8 +13,8 @@ all:
 
 install:
 	mkdir -p $(LINUX_PLUGIN_DIR)
-	sudo cp -r scripts $(LINUX_PLUGIN_DIR)
-	sudo cp linux_plugin $(LINUX_PLUGIN_DIR)
-	sudo cp fos_linux.service $(LINUX_PLUGIN_DIR)
-	sudo cp linux_plugin.json $(LINUX_PLUGIN_DIR)
+	cp -r scripts $(LINUX_PLUGIN_DIR)
+	cp linux_plugin $(LINUX_PLUGIN_DIR)
+	cp fos_linux.service $(LINUX_PLUGIN_DIR)
+	cp linux_plugin.json $(LINUX_PLUGIN_DIR)
 
