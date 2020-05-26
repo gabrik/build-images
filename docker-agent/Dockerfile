@@ -11,8 +11,8 @@ COPY start.sh /root/
 RUN cd /root && tar -xzvf fog05-0.2.0.tar.gz
 COPY templates/Makefile_agent /root/agent/Makefile
 RUN cd /root/agent && make install
-RUN cd /root/agent && chmod +x start.sh
+RUN cd /root && chmod +x start.sh
 
 RUN mkdir -p /var/fos
 
-CMD python3 /root/docker_run.py
+CMD start.sh
