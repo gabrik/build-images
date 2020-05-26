@@ -5,7 +5,7 @@ LABEL authors="Gabriele Baldoni"
 
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -qq && \
-    DEBIAN_FRONTEND=noninteractive apt-get -y install sudo build-essential libev-dev libssl-dev python3 python3-pip python3-dev jq dnsmasq-base wget git
+    DEBIAN_FRONTEND=noninteractive apt-get -y install  python3 python3-pip jq git
 COPY libzenoh-0.3.0-Linux.deb /root/
 COPY fog05-0.2.0.tar.gz /root/
 COPY docker_run.py /root
