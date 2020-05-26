@@ -76,6 +76,9 @@ case "$PKG" in
     ubuntu-ocaml)
     sg docker -c "docker build ./ubu18-ocaml -f ./ubu18-ocaml/Dockerfile -t fog05/ubuntu-build:$TAG --no-cache" --oom-kill-disable
     ;;
+    node-native)
+    sg docker -c "docker build ./node_native -f ./node_native/Dockerfile -t fog05/node:native --no-cache" --oom-kill-disable
+    ;;
     all)
     for d in */; do
         printf "Entering $d\n"
