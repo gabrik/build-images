@@ -49,6 +49,7 @@ def main():
     print('Zenoh IP: {}\n'.format(zenoh))
 
     def catch(signal, _):
+        print('Received {}\n'.format(signal))
         if signal in [2, 15]:
             var.put(signal)
 
