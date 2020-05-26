@@ -5,7 +5,7 @@ LABEL authors="Gabriele Baldoni"
 
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -qq && \
-    DEBIAN_FRONTEND=noninteractive apt-get -y install sudo  libev-dev libssl-dev jq
+    DEBIAN_FRONTEND=noninteractive apt-get -y install libev-dev libssl-dev jq
 COPY fog05-0.2.0.tar.gz /root/
 COPY start.sh /root/
 RUN cd /root && tar -xzvf fog05-0.2.0.tar.gz
