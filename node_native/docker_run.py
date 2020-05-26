@@ -120,8 +120,11 @@ def main():
     f_native = open(native_out,'w')
 
     p_agent = psutil.Popen(cmd_agent.split(' '), shell=False, stdout=f_agent, stderr=f_agent, stdin=PIPE)
+    time.sleep(5)
     p_linux = psutil.Popen(cmd_linux.split(' '), shell=False, stdout=f_linux, stderr=f_linux, stdin=PIPE)
+    time.sleep(5)
     p_lb = psutil.Popen(cmd_lb.split(' '), shell=False, stdout=f_lb, stderr=f_lb, stdin=PIPE)
+    time.sleep(5)
     p_native = psutil.Popen(cmd_native.split(' '), shell=False, stdout=f_native, stderr=f_native, stdin=PIPE)
 
     node['processes'].append(p_native)
