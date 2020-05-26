@@ -11,7 +11,7 @@ COPY fog05-0.2.0.tar.gz /root/
 COPY docker_run.py /root
 RUN dpkg -i /root/libzenoh-0.3.0-Linux.deb
 RUN pip3 install pyangbind sphinx psutil netifaces jinja2
-RUN cd /root && tar -xzvf fog05-0.2.0.tar.gzs
+RUN cd /root && tar -xzvf fog05-0.2.0.tar.gz
 COPY templates/Makefile_agent /root/agent/Makefile
 RUN cd /root/agent && make install
 RUN cd /root/ && git clone https://github.com/eclipse-fog05/sdk-python/ && cd sdk-python && make && make install
