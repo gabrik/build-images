@@ -30,5 +30,5 @@ install:
 	sudo cp ./NativeNoIsolationFDU.py $(NATIVE_PLUGIN_DIR)
 	sudo cp ./README.md $(NATIVE_PLUGIN_DIR)
 	sudo cp ./native_plugin.json $(PLUGIN_CONF)
-    sudo chmod +x $(NATIVE_PLUGIN_DIR)/utils/containerize
+	sudo chmod +x $(NATIVE_PLUGIN_DIR)/utils/containerize
 	sudo ln -sf $(NATIVE_PLUGIN_DIR)/utils/containerize $(BIN_DIR)/fos_containerize
