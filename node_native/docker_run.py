@@ -103,16 +103,16 @@ def main():
     node['configurations'].append(lb_out)
     node['configurations'].append(native_out)
 
-    cmd_agent = 'sudo -u fos /etc/fos/agent -c {} -v'.format(agent_file)
+    cmd_agent = '/etc/fos/agent -c {} -v'.format(agent_file)
     f_agent = open(agent_out,'w')
 
-    cmd_linux = 'sudo -u fos /etc/fos/plugins/plugin-os-linux/linux_plugin {}'.format(linux_file)
+    cmd_linux = '/etc/fos/plugins/plugin-os-linux/linux_plugin {}'.format(linux_file)
     f_linux = open(linux_out,'w')
 
-    cmd_lb = 'sudo -u fos /etc/fos/plugins/plugin-net-linuxbridge/linuxbridge_plugin {}'.format(lb_file)
+    cmd_lb = '/etc/fos/plugins/plugin-net-linuxbridge/linuxbridge_plugin {}'.format(lb_file)
     f_lb = open(lb_out,'w')
 
-    cmd_native = 'sudo -u fos /etc/fos/plugins/plugin-fdu-native/native_plugin {}'.format(native_file)
+    cmd_native = '/etc/fos/plugins/plugin-fdu-native/native_plugin {}'.format(native_file)
     f_native = open(native_out,'w')
 
     p_agent = psutil.Popen(cmd_agent.split(' '), shell=False, stdout=f_agent, stderr=f_agent, stdin=PIPE)
