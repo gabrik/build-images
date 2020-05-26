@@ -44,6 +44,9 @@ def main():
         exit(-1)
     var = MVar()
 
+    print('Eclipse fog05 v0.2.0\n')
+    print('Node ID: {}\n'.format(uid))
+    print('Zenoh IP: {}\n'.format(zenoh))
 
     def catch(signal, _):
         if signal in [2, 15]:
@@ -137,13 +140,8 @@ def main():
 
 
 
-    kill_cmd = ''
     for p in node['processes']:
-        pid = p.pid
-        kill_cmd = kill_cmd + str(pid) + ' '
-    kill_cmd = 'sudo kill -2 '+kill_cmd
-    print('command is {}'.format(kill_cmd))
-    os.system(kill_cmd)
+        pid = p.terminate()
     for f in node['files']:
         f.close()
     for f in node['configurations']:
