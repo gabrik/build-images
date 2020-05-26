@@ -10,7 +10,7 @@ COPY libzenoh-0.3.0-Linux.deb /root/
 COPY fog05-0.2.0.tar.gz /root/
 COPY docker_run.py /root
 RUN dpkg -i /root/libzenoh-0.3.0-Linux.deb
-RUN pip3 install pyangbind sphinx psutil netifaces jinja2
+RUN pip3 install pyangbind sphinx psutil netifaces jinja2 zenoh==0.3.0 yaks==0.3.0.post1
 RUN cd /root && tar -xzvf fog05-0.2.0.tar.gz
 COPY templates/Makefile_agent /root/agent/Makefile
 RUN cd /root/agent && make install
@@ -28,5 +28,6 @@ RUN cd /root/plugin-os-linux && make install
 RUN cd /root/plugin-net-linuxbridge && make install
 RUN cd /root/plugin-fdu-native/ && make && make install
 
+RUN mkdir -p /var/fos
 
 CMD python3 /root/docker_run.py
