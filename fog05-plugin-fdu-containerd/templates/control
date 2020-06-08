@@ -10,6 +10,6 @@ Vcs-Git: https://github.com/eclipse-fog05/plugin-fdu-containerd
 
 Package: fog05-plugin-fdu-containerd
 Architecture: amd64
-Depends:  jq (>= 1.5), fog05 (>= 0.1)
+Depends:  jq (>= 1.5), fog05 (>= 0.2.0)
 Description: Eclipse fog05 Containerd Plugin
  This plugin allow to manage OCI Containers as FDUs
