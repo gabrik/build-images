@@ -16,17 +16,17 @@ docker exec build-agent wget -O opam https://github.com/ocaml/opam/releases/down
 docker exec build-agent install ./opam /usr/local/bin/opam
 docker exec build-agent opam init --compiler=4.09.0 --disable-sandboxing
 # install other deps
-docker exec build-agent bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=240 opam install dune.1.11.4 atdgen.2.0.0 conf-libev ocp-ocamlres websocket-lwt.2.12 -y"
-docker exec build-agent bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=240 opam pin add apero-core https://github.com/atolab/apero-core.git#0.4.6 -y"
-docker exec build-agent bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=240 opam pin add dynload-sys https://github.com/atolab/apero-core.git#0.4.6 -y"
-docker exec build-agent bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=240 opam pin add apero-net https://github.com/atolab/apero-net.git#0.4.6 -y"
-docker exec build-agent bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=240 opam pin add apero-time https://github.com/atolab/apero-time.git#0.4.6 -y"
-docker exec build-agent bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=240 opam pin add zenoh-proto https://github.com/atolab/zenoh.git#0.3.0 -y"
-docker exec build-agent bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=240 opam pin add zenoh-ocaml https://github.com/atolab/zenoh.git#0.3.0 -y"
-docker exec build-agent bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=240 opam pin add yaks-common https://github.com/atolab/yaks-common.git#0.3.0 -y"
-docker exec build-agent bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=240 opam pin add yaks-ocaml https://github.com/atolab/yaks-ocaml.git#0.3.0 -y"
-docker exec build-agent bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=240 opam pin add fos-sdk https://github.com/eclipse-fog05/sdk-ocaml.git#${BRANCH} -y"
-docker exec build-agent bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=240 opam pin add fos-fim-api https://github.com/eclipse-fog05/api-ocaml.git#${BRANCH} -y"
+docker exec build-agent bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=3600 opam install dune.1.11.4 atdgen.2.0.0 conf-libev ocp-ocamlres websocket-lwt.2.12 -y"
+docker exec build-agent bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=3600 opam pin add apero-core https://github.com/atolab/apero-core.git#0.4.6 -y"
+docker exec build-agent bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=3600 opam pin add dynload-sys https://github.com/atolab/apero-core.git#0.4.6 -y"
+docker exec build-agent bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=3600 opam pin add apero-net https://github.com/atolab/apero-net.git#0.4.6 -y"
+docker exec build-agent bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=3600 opam pin add apero-time https://github.com/atolab/apero-time.git#0.4.6 -y"
+docker exec build-agent bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=3600 opam pin add zenoh-proto https://github.com/atolab/zenoh.git#0.3.0 -y"
+docker exec build-agent bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=3600 opam pin add zenoh-ocaml https://github.com/atolab/zenoh.git#0.3.0 -y"
+docker exec build-agent bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=3600 opam pin add yaks-common https://github.com/atolab/yaks-common.git#0.3.0 -y"
+docker exec build-agent bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=3600 opam pin add yaks-ocaml https://github.com/atolab/yaks-ocaml.git#0.3.0 -y"
+docker exec build-agent bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=3600 opam pin add fos-sdk https://github.com/eclipse-fog05/sdk-ocaml.git#${BRANCH} -y"
+docker exec build-agent bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=3600 opam pin add fos-fim-api https://github.com/eclipse-fog05/api-ocaml.git#${BRANCH} -y"
 # clone repo
 docker exec build-agent bash -c "cd /root && git clone https://github.com/eclipse-fog05/agent -b ${BRANCH} --depth 1"
 # building a debian package
