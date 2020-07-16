@@ -26,7 +26,7 @@ docker exec build-agent bash -c "eval \$(opam env) && opam pin add zenoh-ocaml h
 docker exec build-agent bash -c "eval \$(opam env) && opam pin add yaks-common https://github.com/atolab/yaks-common.git#0.3.0 -y"
 docker exec build-agent bash -c "eval \$(opam env) && opam pin add yaks-ocaml https://github.com/atolab/yaks-ocaml.git#0.3.0 -y"
 docker exec build-agent bash -c "eval \$(opam env) && opam pin add fos-sdk https://github.com/eclipse-fog05/sdk-ocaml.git#${BRANCH} -y"
-docker exec build-agent bash -c "eval \$(opam env) && opam pin add fos-fim-api https://github.com/eclipse-fog05/api-ocaml.git#${BRANCH}  -y"
+docker exec build-agent bash -c "eval \$(opam env) && opam pin add fos-fim-api https://github.com/eclipse-fog05/api-ocaml.git#${BRANCH} -y"
 # clone repo
 docker exec build-agent bash -c "cd /root && git clone https://github.com/eclipse-fog05/agent -b ${BRANCH} --depth 1"
 # building a debian package
