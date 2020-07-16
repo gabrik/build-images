@@ -25,10 +25,10 @@ docker exec build-agent bash -c "eval \$(opam env) && opam pin add zenoh-proto h
 docker exec build-agent bash -c "eval \$(opam env) && opam pin add zenoh-ocaml https://github.com/atolab/zenoh.git#0.3.0 -y"
 docker exec build-agent bash -c "eval \$(opam env) && opam pin add yaks-common https://github.com/atolab/yaks-common.git#0.3.0 -y"
 docker exec build-agent bash -c "eval \$(opam env) && opam pin add yaks-ocaml https://github.com/atolab/yaks-ocaml.git#0.3.0 -y"
-docker exec build-agent bash -c "eval \$(opam env) && opam pin add fos-sdk https://github.com/gabrik/sdk-ocaml.git#${BRANCH} -y"
+docker exec build-agent bash -c "eval \$(opam env) && opam pin add fos-sdk https://github.com/eclipse-fog05/sdk-ocaml.git#${BRANCH} -y"
 docker exec build-agent bash -c "eval \$(opam env) && opam pin add fos-fim-api https://github.com/eclipse-fog05/api-ocaml.git#${BRANCH} -y"
 # clone repo
-docker exec build-agent bash -c "cd /root && git clone https://github.com/gabrik/agent -b ${BRANCH} --depth 1"
+docker exec build-agent bash -c "cd /root && git clone https://github.com/eclipse-fog05/agent -b ${BRANCH} --depth 1"
 # building a debian package
 docker exec build-agent bash -c "eval \$(opam env) && mkdir /root/build && cd /root && cp -r agent build/fog05-${VERSION} && cd build/fog05-${VERSION} && rm -rf .git && make clean && cd .. && tar -czvf fog05-${VERSION}.tar.gz fog05-${VERSION}"
 docker exec build-agent bash -c "eval \$(opam env) && cd /root/build/fog05-${VERSION} && make clean"
