@@ -11,7 +11,7 @@ sleep 2
 lxc exec build -- apt update
 lxc exec build -- apt install build-essential devscripts lintian dh-make git wget jq libev-dev libssl-dev m4 pkg-config rsync unzip cmake sudo -y
 # install opam
-lxc exec build -- bash -c "wget -O opam https://github.com/ocaml/opam/releases/download/2.0.6/opam-2.0.6-x86_64-linux"
+lxc exec build -- bash -c "wget -O opam https://github.com/ocaml/opam/releases/download/2.0.6/opam-2.0.6-arm64-linux"
 lxc exec build -- bash -c "install ./opam /usr/local/bin/opam"
 lxc exec build -- bash -c "opam init --compiler=4.09.0 --disable-sandboxing -y"
 # install other deps

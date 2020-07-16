@@ -5,8 +5,8 @@ set -e
 docker pull ${IMAGE}
 docker run -it -d --name build-z ${IMAGE} bash
 
-docker exec build-z bash -c "eval \$(opam env) && opam pin add zenoh-tx-inet https://github.com/atolab/zenoh.git#0.3.0 -y"
-docker exec build-z bash -c "eval \$(opam env) && opam pin add zenoh-router https://github.com/atolab/zenoh.git#0.3.0 -y"
+docker exec build-z bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=240 opam pin add zenoh-tx-inet https://github.com/atolab/zenoh.git#0.3.0 -y"
+docker exec build-z bash -c "eval \$(opam env) && OPAMSOLVERTIMEOUT=240 opam pin add zenoh-router https://github.com/atolab/zenoh.git#0.3.0 -y"
 
 
 # clone repos
