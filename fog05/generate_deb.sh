@@ -31,7 +31,7 @@ docker exec build-agent bash -c "cd /root/build/ && dpkg -I fog05_${VERSION}-1_a
 
 
 
-docker cp build-agent:/root/build/fog05_${VERSION}-1_arm64.deb ../fog05_${VERSION}-1_arm64_${IMAGE}.deb
+docker cp build-agent:/root/build/fog05_${VERSION}-1_arm64.deb ../fog05_${VERSION}-1_arm64.deb
 
 docker exec build-agent bash -c "eval \$(opam env) && cd /root/agent && make && cd .. && tar -czvf fog05-${VERSION}.tar.gz agent"
 docker cp build-agent:/root/fog05-${VERSION}.tar.gz ../fog05-${VERSION}.tar.gz

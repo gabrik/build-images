@@ -29,6 +29,6 @@ docker cp templates/copyright build-ctd:/root/build/fog05-plugin-fdu-containerd-
 docker exec build-ctd bash -c "export PATH=\$PATH:/usr/local/go/bin && cd /root/build/fog05-plugin-fdu-containerd-${VERSION} && debuild --preserve-envvar PATH -us -uc  && ls -l"
 docker exec build-ctd bash -c "cd /root/build/ && dpkg -I fog05-plugin-fdu-containerd_${VERSION}-1_arm64.deb"
 
-docker cp build-ctd:/root/build/fog05-plugin-fdu-containerd_${VERSION}-1_arm64.deb ../fog05-plugin-fdu-containerd_${VERSION}-1_arm64_${IMAGE}.deb
+docker cp build-ctd:/root/build/fog05-plugin-fdu-containerd_${VERSION}-1_arm64.deb ../fog05-plugin-fdu-containerd_${VERSION}-1_arm64.deb
 
 docker container rm --force build-ctd

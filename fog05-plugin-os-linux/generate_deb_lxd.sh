@@ -35,6 +35,6 @@ lxc exec build -- bash -c "cd /root/build/fog05-plugin-os-linux-${VERSION} && de
 lxc exec build -- bash -c "cd /root/build/ && dpkg -I fog05-plugin-os-linux_${VERSION}-1_arm64.deb"
 
 
-lxc file pull build/root/build/fog05-plugin-os-linux_${VERSION}-1_arm64.deb ../fog05-plugin-os-linux_${VERSION}-1_arm64_${IMAGE}.deb
+lxc file pull build/root/build/fog05-plugin-os-linux_${VERSION}-1_arm64.deb ../fog05-plugin-os-linux_${VERSION}-1_arm64.deb
 
 lxc delete --force build

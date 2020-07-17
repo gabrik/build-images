@@ -33,6 +33,6 @@ docker cp templates/copyright build-kvm:/root/build/fog05-plugin-fdu-kvm-${VERSI
 
 docker exec build-kvm bash -c "cd /root/build/fog05-plugin-fdu-kvm-${VERSION} && debuild --preserve-envvar PATH -us -uc  && ls -l ../"
 docker exec build-kvm bash -c "cd /root/build/ && dpkg -I fog05-plugin-fdu-kvm_${VERSION}-1_arm64.deb"
-docker cp build-kvm:/root/build/fog05-plugin-fdu-kvm_${VERSION}-1_arm64.deb ../fog05-plugin-fdu-kvm_${VERSION}-1_arm64_${IMAGE}.deb
+docker cp build-kvm:/root/build/fog05-plugin-fdu-kvm_${VERSION}-1_arm64.deb ../fog05-plugin-fdu-kvm_${VERSION}-1_arm64.deb
 
 docker container rm --force build-kvm
