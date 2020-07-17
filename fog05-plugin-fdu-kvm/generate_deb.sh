@@ -10,7 +10,7 @@ docker run -it -d --name build-kvm ${IMAGE} bash
 
 # deps
 docker exec build-kvm apt update
-docker exec build-kvm apt install build-essential devscripts lintian dh-make git wget jq python3 python3-dev python3-pip unzip cmake sudo -y
+docker exec build-os apt install build-essential devscripts lintian dh-make git wget jq python3 python3-dev python3-pip unzip cmake sudo libxml2-dev libxslt-dev -y
 docker exec build-kvm bash -c "id -u fos  >/dev/null 2>&1 ||  sudo useradd -r -s /bin/false fos"
 docker exec build-kvm groupadd kvm
 docker exec build-kvm groupadd libvirt

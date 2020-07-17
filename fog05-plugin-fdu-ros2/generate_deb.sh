@@ -9,7 +9,7 @@ docker pull ${IMAGE}
 docker run -it -d --name build-ros ${IMAGE} bash
 # deps
 docker exec build-ros apt update
-docker exec build-ros apt install build-essential devscripts lintian dh-make git wget jq python3 python3-dev python3-pip unzip cmake sudo -y
+docker exec build-os apt install build-essential devscripts lintian dh-make git wget jq python3 python3-dev python3-pip unzip cmake sudo libxml2-dev libxslt-dev -y
 docker exec build-ros pip3 install pyangbind sphinx
 docker exec build-ros bash -c "cd /root/ && git clone https://github.com/atolab/zenoh-c -b 0.3.0 --depth 1 && cd zenoh-c && make && make install"
 docker exec build-ros bash -c "cd /root/ && git clone https://github.com/atolab/zenoh-python -b 0.3.0 --depth 1 && cd zenoh-python && python3 setup.py install"

@@ -9,7 +9,7 @@ docker pull ${IMAGE}
 docker run -it -d --name build-nat ${IMAGE} bash
 # deps
 docker exec build-nat apt update
-docker exec build-nat apt install build-essential devscripts lintian dh-make git wget jq python3 python3-dev python3-pip unzip cmake sudo -y
+docker exec build-os apt install build-essential devscripts lintian dh-make git wget jq python3 python3-dev python3-pip unzip cmake sudo libxml2-dev libxslt-dev -y
 docker exec build-nat bash -c "cd /root/ && git clone https://github.com/atolab/zenoh-c -b 0.3.0 --depth 1 && cd zenoh-c && make && make install"
 docker exec build-nat pip3 install pyangbind sphinx zenoh==0.3.0 yaks==0.3.0.post1
 docker exec build-nat bash -c "cd /root/ && git clone https://github.com/eclipse-fog05/sdk-python -b ${BRANCH} --depth 1 && cd sdk-python && make && make install"
