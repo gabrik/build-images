@@ -9,7 +9,7 @@ Vcs-Browser: https://github.com/eclipse-fog05/fog05-plugin-fdu-native
 Vcs-Git: https://github.com/eclipse-fog05/fog05-plugin-fdu-native
 
 Package: fog05-plugin-fdu-native
-Architecture: amd64
+Architecture: arm64
 Depends: python3 (>= 3.6), python3-pip (>= 9.0), python3-dev (>= 3.6), jq (>= 1.5), fog05 (>= 0.2.0)
 Description: Eclipse fog05 Native Plugin
  This plugin allow to manage native FDUs

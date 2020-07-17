@@ -9,7 +9,7 @@ Vcs-Browser: https://github.com/eclipse-zenoh/zenoh
 Vcs-Git: https://github.com/eclipse-zenoh/zenoh.git
 
 Package: zenoh
-Architecture: amd64
+Architecture: arm64
 Depends: libc6 (>= 2.27), libev4 (>= 1:4.04), libssl1.1 (>= 1.1.0)
 Description: Eclipse Zenoh
  zenoh unifies data in motion, data in-use, data at rest and computations.

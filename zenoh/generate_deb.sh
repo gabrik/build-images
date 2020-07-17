@@ -41,7 +41,7 @@ docker cp templates/control build-z:/root/build/zenoh-${VERSION}/debian/control
 docker cp templates/copyright build-z:/root/build/zenoh-${VERSION}/debian/copyright
 
 docker exec build-z bash -c "eval \$(opam env) && cd /root/build/zenoh-${VERSION} && debuild --preserve-envvar PATH --preserve-envvar OCAML_TOPLEVEL_PATH --preserve-envvar CAML_LD_LIBRARY_PATH --preserve-envvar OPAM_SWITCH_PREFIX -us -uc  && ls -l ../"
-docker exec build-z bash -c "cd /root/build/ && dpkg -I zenoh_${VERSION}-1_amd64.deb"
+docker exec build-z bash -c "cd /root/build/ && dpkg -I zenoh_${VERSION}-1_arm64.deb"
 
 
 docker cp build-z:/root/build/zenoh_${VERSION}-1_arm64.deb ../zenoh_${VERSION}-1_arm64.deb

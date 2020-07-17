@@ -30,7 +30,7 @@ docker cp templates/control build-lxd:/root/build/fog05-plugin-fdu-lxd-${VERSION
 docker cp templates/copyright build-lxd:/root/build/fog05-plugin-fdu-lxd-${VERSION}/debian/copyright
 
 docker exec build-lxd bash -c "cd /root/build/fog05-plugin-fdu-lxd-${VERSION} && debuild --preserve-envvar PATH -us -uc  && ls -l ../"
-docker exec build-lxd bash -c "cd /root/build/ && dpkg -I fog05-plugin-fdu-lxd_${VERSION}-1_amd64.deb"
-docker cp build-lxd:/root/build/fog05-plugin-fdu-lxd_${VERSION}-1_amd64.deb ../fog05-plugin-fdu-lxd_${VERSION}-1_amd64_${IMAGE}.deb
+docker exec build-lxd bash -c "cd /root/build/ && dpkg -I fog05-plugin-fdu-lxd_${VERSION}-1_arm64.deb"
+docker cp build-lxd:/root/build/fog05-plugin-fdu-lxd_${VERSION}-1_arm64.deb ../fog05-plugin-fdu-lxd_${VERSION}-1_arm64_${IMAGE}.deb
 
 docker container rm --force build-lxd

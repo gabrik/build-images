@@ -11,7 +11,7 @@ sleep 2
 lxc exec build-ctd -- apt update
 lxc exec build-ctd -- apt install build-essential devscripts lintian dh-make git wget jq unzip cmake sudo -y
 lxc exec build-ctd -- bash -c "cd /root/ && git clone https://github.com/atolab/zenoh-c -b 0.3.0 --depth 1 && cd zenoh-c && make && make install"
-lxc exec build-ctd -- bash -c "cd /root/ && wget https://dl.google.com/go/go1.13.8.linux-amd64.tar.gz && tar -C /usr/local -xzf  go1.13.8.linux-amd64.tar.gz"
+lxc exec build-ctd -- bash -c "cd /root/ && wget https://dl.google.com/go/go1.13.8.linux-arm64.tar.gz && tar -C /usr/local -xzf  go1.13.8.linux-arm64.tar.gz"
 # clone repo
 lxc exec build-ctd -- bash -c "cd /root && git clone https://github.com/eclipse-fog05/plugin-fdu-containerd -b ${BRANCH} --depth 1"
 # building a debian package
@@ -27,9 +27,9 @@ lxc file push templates/control build-ctd/root/build/fog05-plugin-fdu-containerd
 lxc file push templates/copyright build-ctd/root/build/fog05-plugin-fdu-containerd-${VERSION}/debian/copyright
 
 lxc exec build-ctd -- bash -c "export PATH=\$PATH:/usr/local/go/bin && cd /root/build/fog05-plugin-fdu-containerd-${VERSION} && debuild --preserve-envvar PATH -us -uc  && ls -l"
-lxc exec build-ctd -- bash -c "cd /root/build/ && dpkg -I fog05-plugin-fdu-containerd_${VERSION}-1_amd64.deb"
+lxc exec build-ctd -- bash -c "cd /root/build/ && dpkg -I fog05-plugin-fdu-containerd_${VERSION}-1_arm64.deb"
 
 
-lxc file pull build-ctd/root/build/fog05-plugin-fdu-containerd_${VERSION}-1_amd64.deb ../fog05-plugin-fdu-containerd_${VERSION}-1_amd64_${IMAGE}.deb
+lxc file pull build-ctd/root/build/fog05-plugin-fdu-containerd_${VERSION}-1_arm64.deb ../fog05-plugin-fdu-containerd_${VERSION}-1_arm64_${IMAGE}.deb
 
 lxc delete --force build-ctd

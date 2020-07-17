@@ -42,9 +42,9 @@ lxc file push templates/control build/root/build/fog05-${VERSION}/debian/control
 lxc file push templates/copyright build/root/build/fog05-${VERSION}/debian/copyright
 
 lxc exec build -- bash -c "eval \$(opam env) && cd /root/build/fog05-${VERSION} && debuild --preserve-envvar PATH -us -uc  && ls -l ../"
-lxc exec build -- bash -c "cd /root/build/ && dpkg -I fog05_${VERSION}-1_amd64.deb"
+lxc exec build -- bash -c "cd /root/build/ && dpkg -I fog05_${VERSION}-1_arm64.deb"
 
 
-lxc file pull build/root/build/fog05_${VERSION}-1_amd64.deb ../fog05_${VERSION}-1_amd64_${IMAGE}.deb
+lxc file pull build/root/build/fog05_${VERSION}-1_arm64.deb ../fog05_${VERSION}-1_arm64_${IMAGE}.deb
 
 lxc delete --force build

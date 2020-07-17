@@ -27,7 +27,7 @@ docker cp templates/control build-lb:/root/build/fog05-plugin-net-linuxbridge-${
 docker cp templates/copyright build-lb:/root/build/fog05-plugin-net-linuxbridge-${VERSION}/debian/copyright
 
 docker exec build-lb bash -c "cd /root/build/fog05-plugin-net-linuxbridge-${VERSION} && debuild --preserve-envvar PATH -us -uc  && ls -l ../"
-docker exec build-lb bash -c "cd /root/build/ && dpkg -I fog05-plugin-net-linuxbridge_${VERSION}-1_amd64.deb"
-docker cp build-lb:/root/build/fog05-plugin-net-linuxbridge_${VERSION}-1_amd64.deb ../fog05-plugin-net-linuxbridge_${VERSION}-1_amd64_${IMAGE}.deb
+docker exec build-lb bash -c "cd /root/build/ && dpkg -I fog05-plugin-net-linuxbridge_${VERSION}-1_arm64.deb"
+docker cp build-lb:/root/build/fog05-plugin-net-linuxbridge_${VERSION}-1_arm64.deb ../fog05-plugin-net-linuxbridge_${VERSION}-1_arm64_${IMAGE}.deb
 
 docker container rm --force build-lb

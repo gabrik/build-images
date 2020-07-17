@@ -29,7 +29,7 @@ docker cp templates/control build-os:/root/build/fog05-plugin-os-linux-${VERSION
 docker cp templates/copyright build-os:/root/build/fog05-plugin-os-linux-${VERSION}/debian/copyright
 
 docker exec build-os bash -c "cd /root/build/fog05-plugin-os-linux-${VERSION} && debuild --preserve-envvar PATH -us -uc  && ls -l ../"
-docker exec build-os bash -c "cd /root/build/ && dpkg -I fog05-plugin-os-linux_${VERSION}-1_amd64.deb"
-docker cp build-os:/root/build/fog05-plugin-os-linux_${VERSION}-1_amd64.deb ../fog05-plugin-os-linux_${VERSION}-1_amd64_${IMAGE}.deb
+docker exec build-os bash -c "cd /root/build/ && dpkg -I fog05-plugin-os-linux_${VERSION}-1_arm64.deb"
+docker cp build-os:/root/build/fog05-plugin-os-linux_${VERSION}-1_arm64.deb ../fog05-plugin-os-linux_${VERSION}-1_arm64_${IMAGE}.deb
 
 docker container rm --force build-os

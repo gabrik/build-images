@@ -27,7 +27,7 @@ docker cp templates/control build-nat:/root/build/fog05-plugin-fdu-native-${VERS
 docker cp templates/copyright build-nat:/root/build/fog05-plugin-fdu-native-${VERSION}/debian/copyright
 
 docker exec build-nat bash -c "cd /root/build/fog05-plugin-fdu-native-${VERSION} && debuild --preserve-envvar PATH -us -uc  && ls -l ../"
-docker exec build-nat bash -c "cd /root/build/ && dpkg -I fog05-plugin-fdu-native_${VERSION}-1_amd64.deb"
-docker cp build-nat:/root/build/fog05-plugin-fdu-native_${VERSION}-1_amd64.deb ../fog05-plugin-fdu-native_${VERSION}-1_amd64_${IMAGE}.deb
+docker exec build-nat bash -c "cd /root/build/ && dpkg -I fog05-plugin-fdu-native_${VERSION}-1_arm64.deb"
+docker cp build-nat:/root/build/fog05-plugin-fdu-native_${VERSION}-1_arm64.deb ../fog05-plugin-fdu-native_${VERSION}-1_arm64_${IMAGE}.deb
 
 docker container rm --force build-nat

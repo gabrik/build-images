@@ -32,9 +32,9 @@ lxc file push templates/control build/root/build/fog05-plugin-net-linuxbridge-${
 lxc file push templates/copyright build/root/build/fog05-plugin-net-linuxbridge-${VERSION}/debian/copyright
 
 lxc exec build -- bash -c "cd /root/build/fog05-plugin-net-linuxbridge-${VERSION} && debuild --preserve-envvar PATH -us -uc  && ls -l ../"
-lxc exec build -- bash -c "cd /root/build/ && dpkg -I fog05-plugin-net-linuxbridge_${VERSION}-1_amd64.deb"
+lxc exec build -- bash -c "cd /root/build/ && dpkg -I fog05-plugin-net-linuxbridge_${VERSION}-1_arm64.deb"
 
 
-lxc file pull build/root/build/fog05-plugin-net-linuxbridge_${VERSION}-1_amd64.deb ../fog05-plugin-net-linuxbridge_${VERSION}-1_amd64_${IMAGE}.deb
+lxc file pull build/root/build/fog05-plugin-net-linuxbridge_${VERSION}-1_arm64.deb ../fog05-plugin-net-linuxbridge_${VERSION}-1_arm64_${IMAGE}.deb
 
 lxc delete --force build

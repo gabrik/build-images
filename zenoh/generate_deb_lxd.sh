@@ -56,8 +56,8 @@ lxc file push templates/copyright build/root/build/zenoh-${VERSION}/debian/copyr
 
 
 lxc exec build -- bash -c "eval \$(opam env) && cd /root/build/zenoh-${VERSION} && debuild --preserve-envvar PATH --preserve-envvar OCAML_TOPLEVEL_PATH --preserve-envvar CAML_LD_LIBRARY_PATH --preserve-envvar OPAM_SWITCH_PREFIX -us -uc  && ls -l ../"
-lxc exec build -- bash -c "cd /root/build/ && dpkg -I zenoh_${VERSION}-1_amd64.deb"
+lxc exec build -- bash -c "cd /root/build/ && dpkg -I zenoh_${VERSION}-1_arm64.deb"
 
-lxc file pull build/root/build/zenoh_${VERSION}-1_amd64.deb ../zenoh_${VERSION}-1_amd64.deb
+lxc file pull build/root/build/zenoh_${VERSION}-1_arm64.deb ../zenoh_${VERSION}-1_arm64.deb
 
 lxc delete --force build
