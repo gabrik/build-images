@@ -12,7 +12,7 @@ if [[ -z "${BRANCH}" ]]; then
 fi
 
 if [[ -z "${IMAGE}" ]]; then
-  export IMAGE="debian:10-slim"
+  export IMAGE="ubuntu:bionic"
 fi
 
 if [[ -z "${TAG}" ]]; then
