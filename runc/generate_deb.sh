@@ -5,6 +5,7 @@ set -e
 docker pull ${IMAGE}
 docker run -it -d --name build-runc ${IMAGE} bash
 
+docker exec build-runc apt update
 docker exec build-runc apt install build-essential devscripts lintian dh-make git wget jq unzip cmake sudo pkg-config libseccomp-dev -y
 docker exec build-runc bash -c "cd /root/ && wget https://dl.google.com/go/go1.13.8.linux-arm64.tar.gz && tar -C /usr/local -xzf  go1.13.8.linux-arm64.tar.gz"
 
