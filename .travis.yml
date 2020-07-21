@@ -14,4 +14,5 @@ env:
   - PKG=fog05-plugin-fdu-containerd VERSION=0.2.0 BRANCH=0.2.x
   - PKG=zenoh VERSION=0.3.0 BRANCH=0.3.0 IMAGE=fog05/ubuntu-build:arm64
   - PKG=libzenoh VERSION=0.3.0 BRANCH=0.3.0 IMAGE=ubuntu:bionic
+  - PKG=containerd VERSION=1.3.2 BRANCH=v1.3.2 IMAGE=ubuntu:bionic
 script: bash -ex build_debs.sh
