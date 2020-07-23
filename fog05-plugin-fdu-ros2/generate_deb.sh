@@ -33,3 +33,11 @@ docker exec build-ros bash -c "cd /root/build/ && dpkg -I fog05-plugin-fdu-ros2_
 docker cp build-ros:/root/build/fog05-plugin-fdu-ros2_${VERSION}-1_arm64.deb ../fog05-plugin-fdu-ros2_${VERSION}-1_arm64.deb
 
 docker container rm --force build-ros
+
+
+set +x
+echo $KEY  | base64 --decode > key
+chmod 0600 key
+scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-fdu-ros2_${VERSION}-1_arm64.deb $USER@$SERVER:~/fos/deb/bionic/arm64/
+rm key
+set -x

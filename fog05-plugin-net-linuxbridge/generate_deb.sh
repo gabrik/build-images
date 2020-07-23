@@ -31,3 +31,13 @@ docker exec build-lb bash -c "cd /root/build/ && dpkg -I fog05-plugin-net-linuxb
 docker cp build-lb:/root/build/fog05-plugin-net-linuxbridge_${VERSION}-1_arm64.deb ../fog05-plugin-net-linuxbridge_${VERSION}-1_arm64.deb
 
 docker container rm --force build-lb
+
+
+
+
+set +x
+echo $KEY  | base64 --decode > key
+chmod 0600 key
+scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-net-linuxbridge_${VERSION}-1_arm64.deb $USER@$SERVER:~/fos/deb/bionic/arm64/
+rm key
+set -x
