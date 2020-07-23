@@ -40,6 +40,6 @@ docker container rm --force build-ros
 set +x
 echo $KEY  | base64 --decode > key
 chmod 0600 key
-scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-fdu-ros2_${VERSION}-1_amd64.deb $USER@$SERVER:~/fos/deb/bionic/amd64/
+scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-fdu-ros2_${VERSION}-1_amd64.deb $USER@$SERVER:$DEPLOYDIR/fos/deb/bionic/amd64/
 rm key
 set -x
