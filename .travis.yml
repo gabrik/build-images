@@ -14,4 +14,4 @@ env:
   - PKG=zenoh VERSION=0.3.0 BRANCH=0.3.0 IMAGE=fog05/ubuntu-build:latest
   - PKG=libzenoh VERSION=0.3.0 BRANCH=0.3.0 IMAGE=ubuntu:bionic
   - PKG=containerd VERSION=1.3.4 BRANCH=v1.3.4 IMAGE=ubuntu:bionic
-script: bash -ex build_debs.shß
+script: bash -ex build_debs.sh
