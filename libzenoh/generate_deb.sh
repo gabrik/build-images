@@ -27,6 +27,6 @@ docker container rm --force build-lz
 set +x
 echo $KEY  | base64 --decode > key
 chmod 0600 key
-scp -o StrictHostKeyChecking=no -i ./key ../libzenoh-0.3.0-Linux.deb $USER@$SERVER:~/fos/deb/bionic/arm64/libzenoh-0.3.0-arm64.deb
+scp -o StrictHostKeyChecking=no -i ./key ../libzenoh-0.3.0-Linux.deb $USER@$SERVER:$DEPLOYDIR/fos/deb/bionic/arm64/libzenoh-0.3.0-arm64.deb
 rm key
 set -x

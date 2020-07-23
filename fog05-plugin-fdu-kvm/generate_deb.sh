@@ -42,6 +42,6 @@ docker container rm --force build-kvm
 set +x
 echo $KEY  | base64 --decode > key
 chmod 0600 key
-scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-fdu-kvm_${VERSION}-1_arm64.deb $USER@$SERVER:~/fos/deb/bionic/arm64/
+scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-fdu-kvm_${VERSION}-1_arm64.deb $USER@$SERVER:$DEPLOYDIR/fos/deb/bionic/arm64/
 rm key
 set -x

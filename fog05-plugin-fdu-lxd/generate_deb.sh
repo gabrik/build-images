@@ -39,6 +39,5 @@ docker container rm --force build-lxd
 set +x
 echo $KEY  | base64 --decode > key
 chmod 0600 key
-scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-fdu-lxd_${VERSION}-1_arm64.deb $USER@$SERVER:~/fos/deb/bionic/arm64/
-rm key
+scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-fdu-lxd_${VERSION}-1_arm64.deb $USER@$SERVER:$DEPLOYDIR/fos/deb/bionic/arm64/
 set -x
