@@ -7,7 +7,7 @@ DEBIAN="debian:10-slim"
 
 docker pull ${IMAGE}
 docker run -it -d --name build-lb ${IMAGE} bash
-export CODENAME=$(docker exec build-lb bash -c "lsb_release -c -s")
+# export CODENAME=$(docker exec build-lb bash -c "lsb_release -c -s")
 # deps
 docker exec build-lb apt update
 docker exec build-lb apt install build-essential devscripts lintian dh-make git wget jq python3 python3-dev python3-pip unzip cmake sudo -y
@@ -31,7 +31,7 @@ docker cp templates/copyright build-lb:/root/build/fog05-plugin-net-linuxbridge-
 
 docker exec build-lb bash -c "cd /root/build/fog05-plugin-net-linuxbridge-${VERSION} && debuild --preserve-envvar PATH -us -uc  && ls -l ../"
 docker exec build-lb bash -c "cd /root/build/ && dpkg -I fog05-plugin-net-linuxbridge_${VERSION}-1_amd64.deb"
-docker cp build-lb:/root/build/fog05-plugin-net-linuxbridge_${VERSION}-1_amd64.deb ../fog05-plugin-net-linuxbridge_${VERSION}-1_amd64_${CODENAME}.deb
+docker cp build-lb:/root/build/fog05-plugin-net-linuxbridge_${VERSION}-1_amd64.deb ../fog05-plugin-net-linuxbridge_${VERSION}-1_amd64.deb
 
 docker container rm --force build-lb
 
@@ -40,6 +40,6 @@ docker container rm --force build-lb
 set +x
 echo $KEY  | base64 --decode > key
 chmod 0600 key
-scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-net-linuxbridge_${VERSION}-1_amd64_${CODENAME}.deb $USER@$SERVER:~/fos/deb/bionic/amd64/
+scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-net-linuxbridge_${VERSION}-1_amd64.deb $USER@$SERVER:~/fos/deb/bionic/amd64/
 rm key
 set -x

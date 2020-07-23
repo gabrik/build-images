@@ -7,7 +7,7 @@ DEBIAN="debian:10-slim"
 
 docker pull ${IMAGE}
 docker run -it -d --name build-lxd ${IMAGE} bash
-export CODENAME=$(docker exec build-lxd bash -c "lsb_release -c -s")
+# export CODENAME=$(docker exec build-lxd bash -c "lsb_release -c -s")
 # deps
 docker exec build-lxd apt update
 docker exec build-lxd apt install build-essential devscripts lintian dh-make git wget jq python3 python3-dev python3-pip unzip cmake sudo -y
