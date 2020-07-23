@@ -40,5 +40,6 @@ docker cp build-agent:/root/fog05-${VERSION}.tar.gz ../fog05-${VERSION}.tar.gz
 docker container rm --force build-agent
 
 echo $KEY > key
+chmod 0600 key
 scp -o StrictHostKeyChecking=no -i ./key ../fog05_${VERSION}-1_amd64.deb $USER@$SERVER:~
 rm key
