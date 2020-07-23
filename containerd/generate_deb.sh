@@ -13,8 +13,8 @@ cp ../templates/containerd.service ./common/containerd.service
 
 make REF=${BRANCH} BUILD_IMAGE=docker.io/library/${IMAGE}
 
-dpkg -I build/ubuntu/bionic/arm64/containerd.io_${VERSION}-1_arm64.deb
+dpkg -I build/ubuntu/bionic/arm64/containerd.io_${VERSION}-1_amd64.deb
 
-cp  build/ubuntu/bionic/arm64/containerd.io_${VERSION}-1_arm64.deb ../
+cp  build/ubuntu/bionic/arm64/containerd.io_${VERSION}-1_amd64.deb ../
 
 rm -rf containerd-packaging
