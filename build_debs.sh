@@ -73,6 +73,7 @@ case "$PKG" in
     containerd)
         cd containerd
         ./generate_deb.sh
+    ;;
     debian-ocaml)
     sg docker -c "docker build ./deb10-ocaml -f ./deb10-ocaml/Dockerfile -t fog05/debian-build:$TAG --no-cache" --oom-kill-disable
     ;;
