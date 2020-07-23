@@ -57,6 +57,6 @@ docker container rm --force build-z
 set +x
 echo $KEY  | base64 --decode > key
 chmod 0600 key
-scp -o StrictHostKeyChecking=no -i ./key ../zenoh_${VERSION}-1_amd64.deb $USER@$SERVER:~
+scp -o StrictHostKeyChecking=no -i ./key ../zenoh_${VERSION}-1_amd64.deb $USER@$SERVER:~/fos/deb/bionic/amd64/
 rm key
 set -x

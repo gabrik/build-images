@@ -31,7 +31,7 @@ docker cp templates/copyright build-lxd:/root/build/fog05-plugin-fdu-lxd-${VERSI
 
 docker exec build-lxd bash -c "cd /root/build/fog05-plugin-fdu-lxd-${VERSION} && debuild --preserve-envvar PATH -us -uc  && ls -l ../"
 docker exec build-lxd bash -c "cd /root/build/ && dpkg -I fog05-plugin-fdu-lxd_${VERSION}-1_amd64.deb"
-docker cp build-lxd:/root/build/fog05-plugin-fdu-lxd_${VERSION}-1_amd64.deb ../fog05-plugin-fdu-lxd_${VERSION}-1_amd64_${IMAGE}.deb
+docker cp build-lxd:/root/build/fog05-plugin-fdu-lxd_${VERSION}-1_amd64.deb ../fog05-plugin-fdu-lxd_${VERSION}-1_amd64.deb
 
 docker container rm --force build-lxd
 
@@ -39,6 +39,6 @@ docker container rm --force build-lxd
 set +x
 echo $KEY  | base64 --decode > key
 chmod 0600 key
-scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-fdu-lxd_${VERSION}-1_amd64.deb $USER@$SERVER:~
+scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-fdu-lxd_${VERSION}-1_amd64.deb $USER@$SERVER:~/fos/deb/bionic/amd64/
 rm key
 set -x

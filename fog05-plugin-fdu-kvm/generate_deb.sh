@@ -33,7 +33,7 @@ docker cp templates/copyright build-kvm:/root/build/fog05-plugin-fdu-kvm-${VERSI
 
 docker exec build-kvm bash -c "cd /root/build/fog05-plugin-fdu-kvm-${VERSION} && debuild --preserve-envvar PATH -us -uc  && ls -l ../"
 docker exec build-kvm bash -c "cd /root/build/ && dpkg -I fog05-plugin-fdu-kvm_${VERSION}-1_amd64.deb"
-docker cp build-kvm:/root/build/fog05-plugin-fdu-kvm_${VERSION}-1_amd64.deb ../fog05-plugin-fdu-kvm_${VERSION}-1_amd64_${IMAGE}.deb
+docker cp build-kvm:/root/build/fog05-plugin-fdu-kvm_${VERSION}-1_amd64.deb ../fog05-plugin-fdu-kvm_${VERSION}-1_amd64.deb
 
 docker container rm --force build-kvm
 
@@ -41,6 +41,6 @@ docker container rm --force build-kvm
 set +x
 echo $KEY  | base64 --decode > key
 chmod 0600 key
-scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-fdu-kvm_${VERSION}-1_amd64.deb $USER@$SERVER:~
+scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-fdu-kvm_${VERSION}-1_amd64.deb $USER@$SERVER:~/fos/deb/bionic/amd64/
 rm key
 set -x

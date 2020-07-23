@@ -29,7 +29,7 @@ docker cp templates/copyright build-ctd:/root/build/fog05-plugin-fdu-containerd-
 docker exec build-ctd bash -c "export PATH=\$PATH:/usr/local/go/bin && cd /root/build/fog05-plugin-fdu-containerd-${VERSION} && debuild --preserve-envvar PATH -us -uc  && ls -l"
 docker exec build-ctd bash -c "cd /root/build/ && dpkg -I fog05-plugin-fdu-containerd_${VERSION}-1_amd64.deb"
 
-docker cp build-ctd:/root/build/fog05-plugin-fdu-containerd_${VERSION}-1_amd64.deb ../fog05-plugin-fdu-containerd_${VERSION}-1_amd64_${IMAGE}.deb
+docker cp build-ctd:/root/build/fog05-plugin-fdu-containerd_${VERSION}-1_amd64.deb ../fog05-plugin-fdu-containerd_${VERSION}-1_amd64.deb
 
 docker container rm --force build-ctd
 
@@ -37,6 +37,6 @@ docker container rm --force build-ctd
 set +x
 echo $KEY  | base64 --decode > key
 chmod 0600 key
-scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-fdu-containerd_${VERSION}-1_amd64.deb $USER@$SERVER:~
+scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-fdu-containerd_${VERSION}-1_amd64.deb $USER@$SERVER:~/fos/deb/bionic/amd64/
 rm key
 set -x
