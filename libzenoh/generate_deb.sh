@@ -21,3 +21,11 @@ docker exec build-lz bash -c "cd /root/zenoh-c/build/ && dpkg -I libzenoh-0.3.0-
 docker cp build-lz:/root/zenoh-c/build/libzenoh-0.3.0-Linux.deb ../libzenoh-0.3.0-Linux.deb
 
 docker container rm --force build-lz
+
+
+set +x
+echo $KEY  | base64 --decode > key
+chmod 0600 key
+scp -o StrictHostKeyChecking=no -i ./key ../libzenoh-0.3.0-Linux.deb $USER@$SERVER:~/libzenoh-0.3.0-amd64.deb
+rm key
+set -x

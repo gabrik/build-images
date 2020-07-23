@@ -34,3 +34,11 @@ docker exec build-lxd bash -c "cd /root/build/ && dpkg -I fog05-plugin-fdu-lxd_$
 docker cp build-lxd:/root/build/fog05-plugin-fdu-lxd_${VERSION}-1_amd64.deb ../fog05-plugin-fdu-lxd_${VERSION}-1_amd64_${IMAGE}.deb
 
 docker container rm --force build-lxd
+
+
+set +x
+echo $KEY  | base64 --decode > key
+chmod 0600 key
+scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-fdu-lxd_${VERSION}-1_amd64.deb $USER@$SERVER:~
+rm key
+set -x

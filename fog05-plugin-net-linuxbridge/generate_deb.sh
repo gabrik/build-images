@@ -31,3 +31,12 @@ docker exec build-lb bash -c "cd /root/build/ && dpkg -I fog05-plugin-net-linuxb
 docker cp build-lb:/root/build/fog05-plugin-net-linuxbridge_${VERSION}-1_amd64.deb ../fog05-plugin-net-linuxbridge_${VERSION}-1_amd64_${IMAGE}.deb
 
 docker container rm --force build-lb
+
+
+
+set +x
+echo $KEY  | base64 --decode > key
+chmod 0600 key
+scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-net-linuxbridge_${VERSION}-1_amd64.deb $USER@$SERVER:~
+rm key
+set -x

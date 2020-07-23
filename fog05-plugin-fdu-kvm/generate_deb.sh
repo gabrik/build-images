@@ -36,3 +36,11 @@ docker exec build-kvm bash -c "cd /root/build/ && dpkg -I fog05-plugin-fdu-kvm_$
 docker cp build-kvm:/root/build/fog05-plugin-fdu-kvm_${VERSION}-1_amd64.deb ../fog05-plugin-fdu-kvm_${VERSION}-1_amd64_${IMAGE}.deb
 
 docker container rm --force build-kvm
+
+
+set +x
+echo $KEY  | base64 --decode > key
+chmod 0600 key
+scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-fdu-kvm_${VERSION}-1_amd64.deb $USER@$SERVER:~
+rm key
+set -x
