@@ -3,7 +3,7 @@ language: cpp
 services:
   - docker
 env:
-  - PKG=fog05 VERSION=0.2.1 BRANCH=0.2.x IMAGE=fog05/ubuntu-build:arm64
+  - PKG=fog05 VERSION=0.2.1 BRANCH=0.2.x IMAGE=fog05/ubuntu-build:latest
   - PKG=fog05-plugin-os-linux VERSION=0.2.0 BRANCH=0.2.x IMAGE=ubuntu:bionic
   - PKG=fog05-plugin-net-linuxbridge VERSION=0.2.1 BRANCH=0.2.x IMAGE=ubuntu:bionic
   - PKG=fog05-plugin-fdu-native VERSION=0.2.0 BRANCH=0.2.x IMAGE=ubuntu:bionic
