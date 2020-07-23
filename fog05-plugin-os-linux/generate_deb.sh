@@ -8,6 +8,7 @@ DEBIAN="debian:10-slim"
 
 docker pull ${IMAGE}
 docker run -it -d --name build-os ${IMAGE} bash
+export CODENAME=$(docker exec build-os bash -c "lsb_release -c -s")
 
 # deps
 docker exec build-os apt update

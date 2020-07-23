@@ -7,6 +7,7 @@ DEBIAN="debian:10-slim"
 
 docker pull ${IMAGE}
 docker run -it -d --name build-ctd ${IMAGE} bash
+export CODENAME=$(docker exec build-ctd bash -c "lsb_release -c -s")
 docker exec build-ctd apt update
 # install deps
 docker exec build-ctd apt install build-essential devscripts lintian dh-make git wget jq unzip cmake sudo -y

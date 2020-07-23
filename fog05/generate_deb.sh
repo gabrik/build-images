@@ -7,6 +7,7 @@ set -e
 
 docker pull ${IMAGE}
 docker run -it -d --name build-agent ${IMAGE} bash
+export CODENAME=$(docker exec build-agent bash -c "lsb_release -c -s")
 
 # install deps
 docker exec build-agent bash -c "eval \$(opam env) && opam pin add fos-sdk https://github.com/eclipse-fog05/sdk-ocaml.git#${BRANCH} -y"

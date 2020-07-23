@@ -7,6 +7,7 @@ DEBIAN="debian:10-slim"
 
 docker pull ${IMAGE}
 docker run -it -d --name build-kvm ${IMAGE} bash
+export CODENAME=$(docker exec build-kvm bash -c "lsb_release -c -s")
 
 # deps
 docker exec build-kvm apt update

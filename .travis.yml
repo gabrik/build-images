@@ -9,7 +9,7 @@ env:
   - PKG=fog05-plugin-fdu-native VERSION=0.2.0 BRANCH=0.2.x IMAGE=ubuntu:bionic
   - PKG=fog05-plugin-fdu-ros2 VERSION=0.2.0 BRANCH=0.2.x IMAGE=ubuntu:bionic
   - PKG=fog05-plugin-fdu-kvm VERSION=0.2.0 BRANCH=0.2.x IMAGE=ubuntu:bionic
-  - PKG=fog05-plugin-fdu-lxd VERSION=0.2.0 BRANCH=0.2.x IMAGE=ubuntu:bionic
+  - PKG=fog05-plugin-fdu-lxd VERSION=0.2.1 BRANCH=0.2.x IMAGE=ubuntu:bionic
   - PKG=fog05-plugin-fdu-containerd VERSION=0.2.1 BRANCH=0.2.x IMAGE=ubuntu:bionic
   - PKG=zenoh VERSION=0.3.0 BRANCH=0.3.0 IMAGE=fog05/ubuntu-build:latest
   - PKG=libzenoh VERSION=0.3.0 BRANCH=0.3.0 IMAGE=ubuntu:bionic
