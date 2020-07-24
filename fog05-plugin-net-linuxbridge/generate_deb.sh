@@ -38,6 +38,6 @@ docker container rm --force build-lb
 set +x
 echo $KEY  | base64 --decode > key
 chmod 0600 key
-scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-net-linuxbridge_${VERSION}-1_arm64.deb $USER@$SERVER:$DEPLOYDIR/fos/deb/bionic/arm64/
+scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-net-linuxbridge_${VERSION}-1_arm64.deb $USER@$SERVER:$DEPLOYDIR/fos/deb/bionic/arm64/fog05-plugin-net-linuxbridge-1_arm64.deb
 rm key
 set -x
