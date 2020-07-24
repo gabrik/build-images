@@ -22,9 +22,11 @@ case "$1" in
     configure)
         UUID=$(/etc/fos/to_uuid.sh)
         sh -c "echo $UUID | xargs -i  jq  '.configuration.nodeid = \"{}\"' /etc/fos/plugins/plugin-fdu-ros2/ros2_plugin.json > /tmp/fdu_plugin.tmp && mv /tmp/fdu_plugin.tmp /etc/fos/plugins/plugin-fdu-ros2/ros2_plugin.json"
+        ln -sf /etc/fos/plugins/plugin-fdu-ros2/utils/isolate /usr/bin/fos_ros_isolate
         pip3 install psutil mvar jinja2 pyangbind colcon-common-extensions
         chown fos:fos -R /var/fos
         systemctl daemon-reload
+
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
