@@ -1,5 +1,11 @@
 set -e
 
+if [[ -z "${DEPLOY}" ]]; then
+  UPLOAD=false
+else
+  UPLOAD=true
+fi
+
 UBUNTU="ubuntu:bionic"
 DEBIAN="debian:10-slim"
 
@@ -23,10 +29,11 @@ docker cp build-lz:/root/zenoh-c/build/libzenoh-0.3.0-Linux.deb ../libzenoh-0.3.
 docker container rm --force build-lz
 
 
-
-set +x
-echo $KEY  | base64 --decode > key
-chmod 0600 key
-scp -o StrictHostKeyChecking=no -i ./key ../libzenoh-0.3.0-Linux.deb $USER@$SERVER:$DEPLOYDIR/fos/deb/bionic/arm64/libzenoh-0.3.0-arm64.deb
-rm key
-set -x
+if ["$UPLOAD" = true ]; then
+    set +x
+    echo $KEY  | base64 --decode > key
+    chmod 0600 key
+    scp -o StrictHostKeyChecking=no -i ./key ../libzenoh-0.3.0-Linux.deb $USER@$SERVER:$DEPLOYDIR/fos/deb/bionic/arm64/libzenoh-0.3.0-arm64.deb
+    rm key
+    set -x
+fi

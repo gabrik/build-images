@@ -2,6 +2,12 @@
 
 set -e
 
+if [[ -z "${DEPLOY}" ]]; then
+  UPLOAD=false
+else
+  UPLOAD=true
+fi
+
 UBUNTU="ubuntu:bionic"
 DEBIAN="debian:10-slim"
 
@@ -35,9 +41,10 @@ docker cp build-lxd:/root/build/fog05-plugin-fdu-lxd_${VERSION}-1_arm64.deb ../f
 
 docker container rm --force build-lxd
 
-
-set +x
-echo $KEY  | base64 --decode > key
-chmod 0600 key
-scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-fdu-lxd_${VERSION}-1_arm64.deb $USER@$SERVER:$DEPLOYDIR/fos/deb/bionic/arm64/fog05-plugin-fdu-lxd-1_arm64.deb
-set -x
+if ["$UPLOAD" = true ]; then
+    set +x
+    echo $KEY  | base64 --decode > key
+    chmod 0600 key
+    scp -o StrictHostKeyChecking=no -i ./key ../fog05-plugin-fdu-lxd_${VERSION}-1_arm64.deb $USER@$SERVER:$DEPLOYDIR/fos/deb/bionic/arm64/fog05-plugin-fdu-lxd-1_arm64.deb
+    set -x
+fi
