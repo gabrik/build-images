@@ -3,6 +3,12 @@ set -e
 UBUNTU="ubuntu:bionic"
 DEBIAN="debian:10-slim"
 
+if [[ -z "${DEPLOY}" ]]; then
+  UPLOAD=false
+else
+  UPLOAD=true
+fi
+
 docker pull ${IMAGE}
 docker run -it -d --name build-lz ${IMAGE} bash
 export CODENAME=$(docker exec build-lz bash -c "lsb_release -c -s")
@@ -23,10 +29,11 @@ docker cp build-lz:/root/zenoh-c/build/libzenoh-0.3.0-Linux.deb ../libzenoh-0.3.
 
 docker container rm --force build-lz
 
-
-set +x
-echo $KEY  | base64 --decode > key
-chmod 0600 key
-scp -o StrictHostKeyChecking=no -i ./key ../libzenoh-0.3.0-Linux.deb $USER@$SERVER:$DEPLOYDIR/fos/deb/bionic/amd64/libzenoh-0.3.0-amd64.deb
-rm key
-set -x
+if ["$UPLOAD" = true ]; then
+    set +x
+    echo $KEY  | base64 --decode > key
+    chmod 0600 key
+    scp -o StrictHostKeyChecking=no -i ./key ../libzenoh-0.3.0-Linux.deb $USER@$SERVER:$DEPLOYDIR/fos/deb/bionic/amd64/libzenoh-0.3.0-amd64.deb
+    rm key
+    set -x
+fi

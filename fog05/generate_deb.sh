@@ -2,6 +2,13 @@
 
 set -e
 
+
+if [[ -z "${DEPLOY}" ]]; then
+  UPLOAD=false
+else
+  UPLOAD=true
+fi
+
 # UBUNTU="ubuntu:bionic"
 # DEBIAN="debian:10-slim"
 
@@ -39,9 +46,12 @@ docker cp build-agent:/root/fog05-${VERSION}.tar.gz ../fog05-${VERSION}.tar.gz
 
 
 docker container rm --force build-agent
-set +x
-echo $KEY  | base64 --decode > key
-chmod 0600 key
-scp -o StrictHostKeyChecking=no -i ./key ../fog05_${VERSION}-1_amd64.deb $USER@$SERVER:$DEPLOYDIR/fos/deb/bionic/amd64/fog05-1_amd64.deb
-rm key
-set -x
+
+if ["$UPLOAD" = true ]; then
+    set +x
+    echo $KEY  | base64 --decode > key
+    chmod 0600 key
+    scp -o StrictHostKeyChecking=no -i ./key ../fog05_${VERSION}-1_amd64.deb $USER@$SERVER:$DEPLOYDIR/fos/deb/bionic/amd64/fog05-1_amd64.deb
+    rm key
+    set -x
+fi
