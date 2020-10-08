@@ -27,7 +27,7 @@ docker exec build-fosctl bash -c 'source ${HOME}/.cargo/env && cargo install car
 
 docker exec build-fosctl bash -c 'source ${HOME}/.cargo/env && cd /root/fog05/src/utils/fosctl/ && make deb && dpkg -I target/debian/fosctl_0.2.2~alpha1_amd64.deb'
 
-docker cp build-fosctl:/root/fog05/src/utils/fosctl/target/debian/fosctl_0.2.2~alpha1_amd64.debb ../fog05-fosctl_${VERSION}-1_amd64.deb
+docker cp "build-fosctl:/root/fog05/src/utils/fosctl/target/debian/fosctl_0.2.2~alpha1_amd64.deb" ../fog05-fosctl_${VERSION}-1_amd64.deb
 
 docker container rm --force build-fosctl
 
