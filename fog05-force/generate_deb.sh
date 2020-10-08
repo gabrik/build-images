@@ -28,7 +28,7 @@ docker cp templates/force.service build-force:/root/fog05/src/force/force.servic
 docker exec build-force bash -c "export PATH=\$PATH:/usr/local/go/bin && cd /root/fog05/src/force && make"
 docker exec build-force bash -c "mkdir /root/build && cd /root && cp -r /root/fog05/src/force build/fog05-force-${VERSION} && cd build/fog05-force-${VERSION} && rm -rf .git && make clean && cd .. && tar -czvf fog05-force-${VERSION}.tar.gz fog05-force-${VERSION}"
 docker exec build-force bash -c "export DEBEMAIL=\"info@adlink-labs.tech\" && export DEBFULLNAME=\"ATO Labs\" && cd /root/build/fog05-force-${VERSION} && dh_make -f ../fog05-force-${VERSION}.tar.gz -s -y"
-docker exec -e VERSION=${VERSION} build-force bash -c 'cd /root/build/fog05-force-${VERSION} && printf "override_dh_auto_install:\n\tmkdir -p \$\$(pwd)/debian/fog05-force/lib/systemd/system/\n\t\$(MAKE) FORCE_DIR=\$\$(pwd)/debian/fog05-force/etc/fos/ SYSTEMD_DIR=\$\$(pwd)/debian/fog05-force/lib/systemd/system/ install">> debian/rules'
+docker exec -e VERSION=${VERSION} build-force bash -c 'cd /root/build/fog05-force-${VERSION} && printf "override_dh_auto_install:\n\tmkdir -p \$\$(pwd)/debian/fog05-force/lib/systemd/system/\n\t\$(MAKE) FORCE_DIR=\$\$(pwd)/debian/fog05-force/etc/fos/ SYSTEMD_DIR=\$\$(pwd)/debian/fog05-force/lib/systemd/system/ LOCAL_BIN=\$\$(pwd)/debian/fog05-force/usr/local/bin install">> debian/rules'
 
 sed -i "s/FOSVERSION/${VERSION}/g" templates/changelog
 docker cp templates/changelog build-force:/root/build/fog05-force-${VERSION}/debian/changelog
