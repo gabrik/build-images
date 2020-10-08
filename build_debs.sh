@@ -64,7 +64,7 @@ case "$PKG" in
     ;;
     fog05-force)
         cd fog05-force
-        ./generate_image.sh
+        ./generate_deb.sh
     ;;
     zenoh)
         cd zenoh

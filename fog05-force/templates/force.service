@@ -1,0 +1,14 @@
+[unit]
+Description = Zenoh Daemon
+After=network.target
+
+
+[Service]
+Type=simple
+PIDFile=/tmp/f.pid
+ExecStart = /etc/fos/force /etc/fos/force.json
+KillMode=process
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target
+Alias=force.service
