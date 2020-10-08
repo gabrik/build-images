@@ -19,7 +19,7 @@ docker exec build-fosctl apt update
 # install deps
 docker exec build-fosctl apt install build-essential devscripts lintian dh-make git wget jq unzip cmake sudo curl -y
 docker exec build-fosctl bash -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -o /tmp/rust.sh && chmod +x /tmp/rust.sh"
-docker exec buibuild-fosctlld bash -c "/tmp/rust.sh --default-toolchain nightly -y"
+docker exec build-fosctl bash -c "/tmp/rust.sh --default-toolchain nightly -y"
 # cloning repo inside container
 docker exec build-fosctl bash -c "cd /root && git clone https://github.com/eclipse-fog05/fog05/ -b ${BRANCH} --depth 1"
 
