@@ -17,7 +17,7 @@ docker run -it -d --name build-fosctl ${IMAGE} bash
 # export CODENAME=$(docker exec build-fosctl bash -c "lsb_release -c -s")
 docker exec build-fosctl apt update
 # install deps
-docker exec build-fosctl apt install build-essential devscripts lintian dh-make git wget jq unzip cmake sudo curl -y
+docker exec build-fosctl apt install build-essential devscripts lintian dh-make git wget jq unzip cmake sudo curl pkg-config libssl-dev -y
 docker exec build-fosctl bash -c "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs -o /tmp/rust.sh && chmod +x /tmp/rust.sh"
 docker exec build-fosctl bash -c "/tmp/rust.sh --default-toolchain nightly -y"
 # cloning repo inside container
