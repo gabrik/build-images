@@ -62,6 +62,10 @@ case "$PKG" in
         cd fog05-python3-api
         ./generate_deb.sh
     ;;
+    fog05-force)
+        cd fog05-force
+        ./generate_image.sh
+    ;;
     zenoh)
         cd zenoh
         ./generate_deb.sh
