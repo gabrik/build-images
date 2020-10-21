@@ -36,4 +36,4 @@ endif
 	sudo cp force.service $(SYSTEMD_DIR)
 
 
-ln -s $(FORCE_DIR)/force $(LOCAL_BIN)/force
+	ln -s $(FORCE_DIR)/force $(LOCAL_BIN)/force
