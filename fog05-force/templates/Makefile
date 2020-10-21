@@ -34,6 +34,3 @@ else
 	install etc/force.json $(FORCE_DIR)/force.json
 endif
 	sudo cp force.service $(SYSTEMD_DIR)
-
-
-	ln -s $(FORCE_DIR)/force $(LOCAL_BIN)/force

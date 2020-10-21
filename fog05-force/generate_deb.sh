@@ -33,6 +33,8 @@ docker exec -e VERSION=${VERSION} build-force bash -c 'cd /root/build/fog05-forc
 sed -i "s/FOSVERSION/${VERSION}/g" templates/changelog
 docker cp templates/changelog build-force:/root/build/fog05-force-${VERSION}/debian/changelog
 docker cp templates/control build-force:/root/build/fog05-force-${VERSION}/debian/control
+docker cp templates/postinst build-force:/root/build/fog05-force-${VERSION}/debian/postinst
+docker cp templates/postrm build-force:/root/build/fog05-force-${VERSION}/debian/postrm
 docker cp templates/copyright build-force:/root/build/fog05-force-${VERSION}/debian/copyright
 
 docker exec build-force bash -c "export PATH=\$PATH:/usr/local/go/bin && cd /root/build/fog05-force-${VERSION} && debuild --preserve-envvar PATH -us -uc  && ls -l"
