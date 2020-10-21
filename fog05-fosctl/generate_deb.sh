@@ -25,9 +25,9 @@ docker exec build-fosctl bash -c "cd /root && git clone https://github.com/eclip
 
 docker exec build-fosctl bash -c 'source ${HOME}/.cargo/env && cargo install cargo-deb && cd /root/fog05/src/utils/fosctl/ && make'
 
-docker exec build-fosctl bash -c 'source ${HOME}/.cargo/env && cd /root/fog05/src/utils/fosctl/ && make deb && dpkg -I target/debian/fosctl_0.2.2~alpha1_amd64.deb'
+docker exec build-fosctl bash -c 'source ${HOME}/.cargo/env && cd /root/fog05/src/utils/fosctl/ && make deb && dpkg -I target/debian/fosctl_0.2.2~alpha1_arm64.deb'
 
-docker cp "build-fosctl:/root/fog05/src/utils/fosctl/target/debian/fosctl_0.2.2~alpha1_amd64.deb" ../fog05-fosctl_${VERSION}-1_amd64.deb
+docker cp "build-fosctl:/root/fog05/src/utils/fosctl/target/debian/fosctl_0.2.2~alpha1_arm64.deb" ../fog05-fosctl_${VERSION}-1_arm64.deb
 
 docker container rm --force build-fosctl
 
@@ -35,7 +35,7 @@ if [ "$UPLOAD" = true ]; then
     set +x
     echo $KEY  | base64 --decode > key
     chmod 0600 key
-    scp -o StrictHostKeyChecking=no -i ./key ../fog05-fosctl_${VERSION}-1_amd64.deb $USER@$SERVER:$DEPLOYDIR/fos/deb/bionic/amd64/fog05-fosctl-1_amd64.deb
+    scp -o StrictHostKeyChecking=no -i ./key ../fog05-fosctl_${VERSION}-1_arm64.deb $USER@$SERVER:$DEPLOYDIR/fos/deb/bionic/arm64/fog05-fosctl-1_arm64.deb
     rm key
     set -x
 fi
