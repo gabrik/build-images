@@ -9,7 +9,7 @@ Vcs-Browser: https://github.com/eclipse-fog05/fog05
 Vcs-Git: https://github.com/eclipse-fog05/fog05
 
 Package: fog05-force
-Architecture: amd64
+Architecture: arm64
 Depends:  jq (>= 1.5)
 Description: Eclipse fog05 FOrcE
  Orchestration Engine of Eclipse fog05
