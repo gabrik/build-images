@@ -42,7 +42,7 @@ docker cp build-lxd:/root/build/fog05-plugin-fdu-lxd_${VERSION}-1_amd64.deb ../f
 
 docker container rm --force build-lxd
 
-if ["$UPLOAD" = true ]; then
+if [ "$UPLOAD" = true ]; then
     set +x
     echo $KEY  | base64 --decode > key
     chmod 0600 key

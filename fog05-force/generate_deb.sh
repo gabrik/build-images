@@ -42,7 +42,7 @@ docker cp build-force:/root/build/fog05-force_${VERSION}-1_amd64.deb ../fog05-fo
 
 docker container rm --force build-force
 
-if ["$UPLOAD" = true ]; then
+if [ "$UPLOAD" = true ]; then
     set +x
     echo $KEY  | base64 --decode > key
     chmod 0600 key

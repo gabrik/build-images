@@ -43,7 +43,7 @@ docker cp build-lb:/root/build/fog05-plugin-net-linuxbridge_${VERSION}-1_amd64.d
 docker container rm --force build-lb
 
 
-if ["$UPLOAD" = true ]; then
+if [ "$UPLOAD" = true ]; then
     set +x
     echo $KEY  | base64 --decode > key
     chmod 0600 key

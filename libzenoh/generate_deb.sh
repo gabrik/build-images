@@ -29,7 +29,7 @@ docker cp build-lz:/root/zenoh-c/build/libzenoh-0.3.0-Linux.deb ../libzenoh-0.3.
 
 docker container rm --force build-lz
 
-if ["$UPLOAD" = true ]; then
+if [ "$UPLOAD" = true ]; then
     set +x
     echo $KEY  | base64 --decode > key
     chmod 0600 key

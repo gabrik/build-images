@@ -45,7 +45,7 @@ docker cp build-kvm:/root/build/fog05-plugin-fdu-kvm_${VERSION}-1_amd64.deb ../f
 
 docker container rm --force build-kvm
 
-if ["$UPLOAD" = true ]; then
+if [ "$UPLOAD" = true ]; then
     set +x
     echo $KEY  | base64 --decode > key
     chmod 0600 key

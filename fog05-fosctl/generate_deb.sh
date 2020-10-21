@@ -31,7 +31,7 @@ docker cp "build-fosctl:/root/fog05/src/utils/fosctl/target/debian/fosctl_0.2.2~
 
 docker container rm --force build-fosctl
 
-if ["$UPLOAD" = true ]; then
+if [ "$UPLOAD" = true ]; then
     set +x
     echo $KEY  | base64 --decode > key
     chmod 0600 key
