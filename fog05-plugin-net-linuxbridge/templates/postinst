@@ -20,6 +20,7 @@ set -e
 
 case "$1" in
     configure)
+        ln -sf /etc/fos/plugins/plugin-fdu-native/utils/containerize /usr/local/bin/fos_containerize
         UUID=$(/etc/fos/to_uuid.sh)
         sh -c "echo $UUID | xargs -i  jq  '.configuration.nodeid = \"{}\"' /etc/fos/plugins/plugin-net-linuxbridge/linuxbridge_plugin.json > /tmp/net_plugin.tmp && mv /tmp/net_plugin.tmp /etc/fos/plugins/plugin-net-linuxbridge/linuxbridge_plugin.json"
         pip3 install psutil netifaces mvar
