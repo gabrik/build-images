@@ -29,6 +29,7 @@ docker exec  -e VERSION=${VERSION} build-nat bash -c 'cd /root/build/fog05-plugi
 sed -i "s/FOSVERSION/${VERSION}/g" templates/changelog
 docker cp templates/changelog build-nat:/root/build/fog05-plugin-fdu-native-${VERSION}/debian/changelog
 docker cp templates/postinst build-nat:/root/build/fog05-plugin-fdu-native-${VERSION}/debian/postinst
+docker cp templates/postrm build-nat:/root/build/fog05-plugin-fdu-native-${VERSION}/debian/postrm
 docker cp templates/control build-nat:/root/build/fog05-plugin-fdu-native-${VERSION}/debian/control
 docker cp templates/copyright build-nat:/root/build/fog05-plugin-fdu-native-${VERSION}/debian/copyright
 
@@ -39,7 +40,7 @@ docker cp build-nat:/root/build/fog05-plugin-fdu-native_${VERSION}-1_arm64.deb .
 docker container rm --force build-nat
 
 
-if ["$UPLOAD" = true ]; then
+if [ "$UPLOAD" = true ]; then
     set +x
     echo $KEY  | base64 --decode > key
     chmod 0600 key

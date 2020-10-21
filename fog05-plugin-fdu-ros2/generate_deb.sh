@@ -40,7 +40,7 @@ docker cp build-ros:/root/build/fog05-plugin-fdu-ros2_${VERSION}-1_arm64.deb ../
 
 docker container rm --force build-ros
 
-if ["$UPLOAD" = true ]; then
+if [ "$UPLOAD" = true ]; then
     set +x
     echo $KEY  | base64 --decode > key
     chmod 0600 key

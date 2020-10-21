@@ -1,0 +1,15 @@
+Source: fog05-force
+Section: unkown
+Priority: optional
+Maintainer: ATO Labs <info@adlink-labs.tech>
+Build-Depends: debhelper (>= 11)
+Standards-Version: 4.1.3
+Homepage: https://fog05.io
+Vcs-Browser: https://github.com/eclipse-fog05/fog05
+Vcs-Git: https://github.com/eclipse-fog05/fog05
+
+Package: fog05-force
+Architecture: amd64
+Depends:  jq (>= 1.5)
+Description: Eclipse fog05 FOrcE
+ Orchestration Engine of Eclipse fog05

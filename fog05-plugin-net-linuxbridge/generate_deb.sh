@@ -29,6 +29,7 @@ docker exec -e VERSION=${VERSION} build-lb bash -c 'cd /root/build/fog05-plugin-
 sed -i "s/FOSVERSION/${VERSION}/g" templates/changelog
 docker cp templates/changelog build-lb:/root/build/fog05-plugin-net-linuxbridge-${VERSION}/debian/changelog
 docker cp templates/postinst build-lb:/root/build/fog05-plugin-net-linuxbridge-${VERSION}/debian/postinst
+docker cp templates/postrm build-lb:/root/build/fog05-plugin-net-linuxbridge-${VERSION}/debian/postrm
 docker cp templates/control build-lb:/root/build/fog05-plugin-net-linuxbridge-${VERSION}/debian/control
 docker cp templates/copyright build-lb:/root/build/fog05-plugin-net-linuxbridge-${VERSION}/debian/copyright
 
@@ -40,7 +41,7 @@ docker container rm --force build-lb
 
 
 
-if ["$UPLOAD" = true ]; then
+if [ "$UPLOAD" = true ]; then
     set +x
     echo $KEY  | base64 --decode > key
     chmod 0600 key

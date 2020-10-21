@@ -59,7 +59,7 @@ docker cp build-z:/root/zenoh-${VERSION}.tar.gz ../zenoh-${VERSION}.tar.gz
 docker container rm --force build-z
 
 
-if ["$UPLOAD" = true ]; then
+if [ "$UPLOAD" = true ]; then
     set +x
     echo $KEY  | base64 --decode > key
     chmod 0600 key

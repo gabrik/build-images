@@ -40,7 +40,7 @@ docker cp build-os:/root/build/fog05-plugin-os-linux_${VERSION}-1_arm64.deb ../f
 
 docker container rm --force build-os
 
-if ["$UPLOAD" = true ]; then
+if [ "$UPLOAD" = true ]; then
     set +x
     echo $KEY  | base64 --decode > key
     chmod 0600 key
