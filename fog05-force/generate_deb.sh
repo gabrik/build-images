@@ -38,9 +38,9 @@ docker cp templates/postrm build-force:/root/build/fog05-force-${VERSION}/debian
 docker cp templates/copyright build-force:/root/build/fog05-force-${VERSION}/debian/copyright
 
 docker exec build-force bash -c "export PATH=\$PATH:/usr/local/go/bin && cd /root/build/fog05-force-${VERSION} && debuild --preserve-envvar PATH -us -uc  && ls -l"
-docker exec build-force bash -c "cd /root/build/ && dpkg -I fog05-force_${VERSION}-1_amd64.deb"
+docker exec build-force bash -c "cd /root/build/ && dpkg -I fog05-force_${VERSION}-1_arm64.deb"
 
-docker cp build-force:/root/build/fog05-force_${VERSION}-1_amd64.deb ../fog05-force_${VERSION}-1_amd64.deb
+docker cp build-force:/root/build/fog05-force_${VERSION}-1_arm64.deb ../fog05-force_${VERSION}-1_arm64.deb
 
 docker container rm --force build-force
 
@@ -48,7 +48,7 @@ if [ "$UPLOAD" = true ]; then
     set +x
     echo $KEY  | base64 --decode > key
     chmod 0600 key
-    scp -o StrictHostKeyChecking=no -i ./key ../fog05-force_${VERSION}-1_amd64.deb $USER@$SERVER:$DEPLOYDIR/fos/deb/bionic/amd64/fog05-force-1_amd64.deb
+    scp -o StrictHostKeyChecking=no -i ./key ../fog05-force_${VERSION}-1_arm64.deb $USER@$SERVER:$DEPLOYDIR/fos/deb/bionic/arm64/fog05-force-1_arm64.deb
     rm key
     set -x
 fi
