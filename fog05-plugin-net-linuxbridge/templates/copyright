@@ -1,7 +1,0 @@
-Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: fog05-plugin-net-linuxbridge
-Source: https://fog05.io
-
-Files: *
-Copyright: 2020 ADLINK Technology Inc <gabriele.baldoni@adlinktech.com>
-License: EPL-2.0 OR Apache-2.0

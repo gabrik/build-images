@@ -1,9 +1,0 @@
-fog05-plugin-fdu-kvm (FOSVERSION-1) unstable; urgency=medium
-
-  * Initial release
-  * 1c72318 - Gabriele Baldoni, Tue Feb 25 12:36:44 2020 +0100 : added proper build of debian package in travis (#2)
-  * 4a63589 - Gabriele Baldoni, Mon Jan 20 16:11:27 2020 +0100 : Preparing release 0.1.0 (#1)
-  * 44625e6 - gabrik, Fri Nov 29 11:12:58 2019 +0100 : fix python sdk import
-  * 0e12ce1 - gabrik, Wed Nov 6 12:46:58 2019 +0100 : initial
-
- -- ADLINK Technology Inc <info@adlink-labs.tech>  Mon, 24 Feb 2020 14:55:27 +0000
