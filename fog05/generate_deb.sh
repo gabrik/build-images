@@ -29,8 +29,8 @@ docker exec build-agent bash -c "cd /root/fog05/ && cargo deb -p fog05-agent --n
 docker exec build-agent bash -c "cd /root/fog05/ && cargo deb -p fog05-fosctl --no-build"
 
 # check packages
-docker exec build-agent bash -c 'cd /root/fog05/ && dpkg -I ./target/release/debian/fog05-agent_$(cat fog05-agent/Cargo.toml | grep version | head -n1 | sed 's/[^"]*"\([^"]*\)".*/\1/' | tr "-" "~")_amd64.deb'
-docker exec build-agent bash -c 'cd /root/fog05/ && dpkg -I ./target/release/debian/fog05-fosctl_$(cat fog05-agent/Cargo.toml | grep version | head -n1 | sed 's/[^"]*"\([^"]*\)".*/\1/' | tr "-" "~")_amd64.deb'
+docker exec build-agent bash -c "cd /root/fog05/ && dpkg -I ./target/release/debian/fog05-agent_$(cat fog05-agent/Cargo.toml | grep version | head -n1 | sed 's/[^"]*"\([^"]*\)".*/\1/' | tr "-" "~")_amd64.deb"
+docker exec build-agent bash -c "cd /root/fog05/ && dpkg -I ./target/release/debian/fog05-fosctl_$(cat fog05-agent/Cargo.toml | grep version | head -n1 | sed 's/[^"]*"\([^"]*\)".*/\1/' | tr "-" "~")_amd64.deb"
 
 
 
