@@ -32,8 +32,8 @@ C_A_VERSION=$(docker exec build-agent bash -c "cd /root/fog05/ && cat fog05-agen
 C_C_VERSION=$(docker exec build-agent bash -c "cd /root/fog05/ && cat fog05-fosctl/Cargo.toml | grep version | head -n1 | sed 's/[^\"]*\"\([^\"]*\)\".*/\1/' | tr '-' '~'")
 
 # check packages
-docker exec -e BRANCH=C_A_VERSION build-agent bash -c 'cd /root/fog05/ && dpkg -I ./target/release/debian/fog05-agent_$VERSION_amd64.deb'
-docker exec -e BRANCH=C_C_VERSION build-agent bash -c 'cd /root/fog05/ && dpkg -I ./target/release/debian/fog05-fosctl_$VERSION_amd64.deb'
+docker exec -e VERSION=C_A_VERSION build-agent bash -c 'cd /root/fog05/ && dpkg -I ./target/release/debian/fog05-agent_$VERSION_amd64.deb'
+docker exec -e VERSION=C_C_VERSION build-agent bash -c 'cd /root/fog05/ && dpkg -I ./target/release/debian/fog05-fosctl_$VERSION_amd64.deb'
 
 
 
