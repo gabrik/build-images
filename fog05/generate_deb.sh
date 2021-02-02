@@ -16,21 +16,21 @@ docker exec build-agent curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.r
 docker exec build-agent chmod +x /tmp/rust.sh
 docker exec build-agent /tmp/rust.sh --default-toolchain nightly -y
 # install cargo deb
-docker exec build-agent bash -c "cargo install cargo-deb"
+docker exec build-agent bash -c "source ${HOME}/.cargo/env &&cargo install cargo-deb"
 
 # clone repo
-docker exec build-agent bash -c "cd /root && git clone https://github.com/eclipse-fog05/fog05 -b ${BRANCH} --depth 1"
+docker exec build-agent bash -c "source ${HOME}/.cargo/env && cd /root && git clone https://github.com/eclipse-fog05/fog05 -b ${BRANCH} --depth 1"
 # build
-docker exec build-agent bash -c "cd /root/fog05/ && cargo check"
-docker exec build-agent bash -c "cd /root/fog05/ && cargo build --release"
+docker exec build-agent bash -c "source ${HOME}/.cargo/env && cd /root/fog05/ && cargo check"
+docker exec build-agent bash -c "source ${HOME}/.cargo/env && cd /root/fog05/ && cargo build --release"
 
 # debian packages
-docker exec build-agent bash -c "cd /root/fog05/ && cargo deb -p fog05-agent --no-build"
-docker exec build-agent bash -c "cd /root/fog05/ && cargo deb -p fog05-fosctl --no-build"
+docker exec build-agent bash -c "source ${HOME}/.cargo/env && cd /root/fog05/ && cargo deb -p fog05-agent --no-build"
+docker exec build-agent bash -c "source ${HOME}/.cargo/env && cd /root/fog05/ && cargo deb -p fog05-fosctl --no-build"
 
 # check packages
-docker exec build-agent bash -c "cd /root/fog05/ && dpkg -I ./target/release/debian/fog05-agent_$(cat fog05-agent/Cargo.toml | grep version | head -n1 | sed 's/[^"]*"\([^"]*\)".*/\1/' | tr "-" "~")_amd64.deb"
-docker exec build-agent bash -c "cd /root/fog05/ && dpkg -I ./target/release/debian/fog05-fosctl_$(cat fog05-agent/Cargo.toml | grep version | head -n1 | sed 's/[^"]*"\([^"]*\)".*/\1/' | tr "-" "~")_amd64.deb"
+docker exec build-agent bash -c "cd /root/fog05/ && dpkg -I ./target/release/debian/fog05-agent_$(cat fog05-agent/Cargo.toml | grep version | head -n1 | sed 's/[^"]*"\([^"]*\)".*/\1/' | tr '-' '~')_amd64.deb"
+docker exec build-agent bash -c "cd /root/fog05/ && dpkg -I ./target/release/debian/fog05-fosctl_$(cat fog05-agent/Cargo.toml | grep version | head -n1 | sed 's/[^"]*"\([^"]*\)".*/\1/' | tr '-' '~')_amd64.deb"
 
 
 
