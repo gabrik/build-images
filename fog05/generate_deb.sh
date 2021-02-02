@@ -32,12 +32,13 @@ C_A_VERSION=$(docker exec build-agent bash -c "cd /root/fog05/ && cat fog05-agen
 C_C_VERSION=$(docker exec build-agent bash -c "cd /root/fog05/ && cat fog05-fosctl/Cargo.toml | grep version | head -n1 | sed 's/[^\"]*\"\([^\"]*\)\".*/\1/' | tr '-' '~'")
 
 # check packages
-docker exec -e VERSION=$C_A_VERSION build-agent bash -c 'cd /root/fog05/ && dpkg -I ./target/release/debian/fog05-agent_$VERSION_amd64.deb'
-docker exec -e VERSION=$C_C_VERSION build-agent bash -c 'cd /root/fog05/ && dpkg -I ./target/release/debian/fog05-fosctl_$VERSION_amd64.deb'
+docker exec -e VERSION=$C_A_VERSION build-agent bash -c 'cd /root/fog05/ && dpkg -I ./target/debian/fog05-agent_${VERSION}_amd64.deb'
+docker exec -e VERSION=$C_C_VERSION build-agent bash -c 'cd /root/fog05/ && dpkg -I ./target/debian/fog05-fosctl_${VERSION}_amd64.deb'
 
 
 
-# docker cp build-agent:/root/build/fog05_${VERSION}-1_amd64.deb ../fog05_${VERSION}-1_amd64_${IMAGE}.deb
+docker cp build-agent:/root/fog05/target/debian/fog05-agent_${C_A_VERSION}_amd64.deb ../
+docker cp build-agent:/root/fog05/target/debian/fog05-fosctl_${C_C_VERSION}_amd64.deb ../
 
 # docker exec build-agent bash -c "eval \$(opam env) && cd /root/agent && make && cd .. && tar -czvf fog05-${VERSION}.tar.gz agent"
 # docker cp build-agent:/root/fog05-${VERSION}.tar.gz ../fog05-${VERSION}.tar.gz
