@@ -71,10 +71,10 @@ case "$PKG" in
         ./generate_deb.sh
     ;;
     debian-build)
-    sg docker -c "docker build ./deb10-build -f ./deb10-build/Dockerfile -t gabrik/debian-build:$TAG --no-cache" --oom-kill-disable
+    sg docker -c "docker build ./deb10-build -f ./deb10-build/Dockerfile -t gabrik91/debian-build:$TAG --no-cache" --oom-kill-disable
     ;;
     ubuntu-build)
-    sg docker -c "docker build ./ubu18-build -f ./ubu18-build/Dockerfile -t gabrik/ubuntu-build:$TAG --no-cache" --oom-kill-disable
+    sg docker -c "docker build ./ubu18-build -f ./ubu18-build/Dockerfile -t gabrik91/ubuntu-build:$TAG --no-cache" --oom-kill-disable
     ;;
     all)
     for d in */; do
