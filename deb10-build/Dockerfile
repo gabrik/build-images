@@ -3,7 +3,7 @@ from debian:10-slim
 LABEL authors="Gabriele Baldoni"
 
 RUN DEBIAN_FRONTEND=noninteractive apt update && \
-	DEBIAN_FRONTEND=noninteractive apt install build-essential devscripts debhelper pkg-config libssl-dev libpython3-dev equivs -y
+	DEBIAN_FRONTEND=noninteractive apt install build-essential devscripts debhelper pkg-config libssl-dev libpython3-dev equivs gcc-aarch64-linux-gnu -y
 
 
 COPY bin/uid_entrypoint /bin/uid_entrypoint
