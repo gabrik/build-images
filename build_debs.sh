@@ -70,14 +70,11 @@ case "$PKG" in
         cd libzenoh
         ./generate_deb.sh
     ;;
-    debian-ocaml)
+    debian-build)
     sg docker -c "docker build ./deb10-build -f ./deb10-build/Dockerfile -t gabrik/debian-build:$TAG --no-cache" --oom-kill-disable
     ;;
-    ubuntu-ocaml)
+    ubuntu-build)
     sg docker -c "docker build ./ubu18-build -f ./ubu18-build/Dockerfile -t gabrik/ubuntu-build:$TAG --no-cache" --oom-kill-disable
-    ;;
-    node-native)
-    sg docker -c "docker build ./node_native -f ./node_native/Dockerfile -t fog05/node:native --no-cache" --oom-kill-disable
     ;;
     all)
     for d in */; do
