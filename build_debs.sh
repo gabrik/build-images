@@ -71,10 +71,10 @@ case "$PKG" in
         ./generate_deb.sh
     ;;
     debian-ocaml)
-    sg docker -c "docker build ./deb10-ocaml -f ./deb10-ocaml/Dockerfile -t fog05/debian-build:$TAG --no-cache" --oom-kill-disable
+    sg docker -c "docker build ./deb10-build -f ./deb10-build/Dockerfile -t gabrik/debian-build:$TAG --no-cache" --oom-kill-disable
     ;;
     ubuntu-ocaml)
-    sg docker -c "docker build ./ubu18-ocaml -f ./ubu18-ocaml/Dockerfile -t fog05/ubuntu-build:$TAG --no-cache" --oom-kill-disable
+    sg docker -c "docker build ./ubu18-build -f ./ubu18-build/Dockerfile -t gabrik/ubuntu-build:$TAG --no-cache" --oom-kill-disable
     ;;
     node-native)
     sg docker -c "docker build ./node_native -f ./node_native/Dockerfile -t fog05/node:native --no-cache" --oom-kill-disable
